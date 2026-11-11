@@ -1,0 +1,15 @@
+{
+  "data_root": "../../external/kit",
+  "out": "../../external/runs/oracle-001.jsonl",
+  "split_config": "../../external/frozen.json",
+  "backend": "ollama",
+  "split": "train",
+  "input_mode": "oracle",
+  "selection": "validation",
+  "ollama_model": "qwen3:4b-instruct-2507-q4_K_M",
+  "sample_seconds": 25.0,
+  "max_decisions": 9,
+  "max_repairs": 1,
+  "done_reconsiderations": 1,
+  "max_generations": 32
+}

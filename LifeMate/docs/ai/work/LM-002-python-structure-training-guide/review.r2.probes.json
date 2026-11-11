@@ -1,0 +1,1017 @@
+{
+  "kind": "DETERMINISTIC_DEFECT_REPRODUCTION_NOT_PRODUCT_PASS",
+  "cases": {
+    "tomorrow_half": {
+      "text": "mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-11T05:30:00+07:00",
+      "r2": {
+        "raw_text": "mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+        "effective_text": "mai n\u0103m r\u01b0\u1ee1i",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:00:00+07:00",
+            "span": [
+              4,
+              12
+            ],
+            "text": "n\u0103m gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T05:30:00+07:00",
+            "span": [
+              21,
+              29
+            ],
+            "text": "n\u0103m r\u01b0\u1ee1i",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            12,
+            21
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T05:30:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+        "effective_text": "n\u0103m r\u01b0\u1ee1i",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:00:00+07:00",
+            "span": [
+              4,
+              12
+            ],
+            "text": "n\u0103m gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:30:00+07:00",
+            "span": [
+              21,
+              29
+            ],
+            "text": "n\u0103m r\u01b0\u1ee1i",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            12,
+            21
+          ]
+        ]
+      }
+    },
+    "tomorrow_hour": {
+      "text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-11T09:00:00+07:00",
+      "r2": {
+        "raw_text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+        "effective_text": "nh\u1eafc mai 9 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T08:00:00+07:00",
+            "span": [
+              9,
+              15
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T09:00:00+07:00",
+            "span": [
+              24,
+              29
+            ],
+            "text": "9 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T09:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+        "effective_text": "9 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T08:00:00+07:00",
+            "span": [
+              9,
+              15
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T09:00:00+07:00",
+            "span": [
+              24,
+              29
+            ],
+            "text": "9 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ]
+        ]
+      }
+    },
+    "next_week": {
+      "text": "th\u1ee9 hai tu\u1ea7n sau 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-16T06:00:00+07:00",
+      "r2": {
+        "raw_text": "th\u1ee9 hai tu\u1ea7n sau 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+        "effective_text": "th\u1ee9 hai tu\u1ea7n sau 6 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-16T05:00:00+07:00",
+            "span": [
+              17,
+              23
+            ],
+            "text": "5 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T06:00:00+07:00",
+            "span": [
+              32,
+              37
+            ],
+            "text": "6 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            23,
+            32
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T06:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "th\u1ee9 hai tu\u1ea7n sau 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+        "effective_text": "6 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-16T05:00:00+07:00",
+            "span": [
+              17,
+              23
+            ],
+            "text": "5 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-16T06:00:00+07:00",
+            "span": [
+              32,
+              37
+            ],
+            "text": "6 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            23,
+            32
+          ]
+        ]
+      }
+    },
+    "next_weekday": {
+      "text": "th\u1ee9 hai t\u1edbi 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-16T06:00:00+07:00",
+      "r2": {
+        "raw_text": "th\u1ee9 hai t\u1edbi 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+        "effective_text": "th\u1ee9 hai t\u1edbi 6 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-16T05:00:00+07:00",
+            "span": [
+              12,
+              18
+            ],
+            "text": "5 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T06:00:00+07:00",
+            "span": [
+              27,
+              32
+            ],
+            "text": "6 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            18,
+            27
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T06:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "th\u1ee9 hai t\u1edbi 5 gi\u1edd \u00e0 kh\u00f4ng, 6 gi\u1edd",
+        "effective_text": "6 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-16T05:00:00+07:00",
+            "span": [
+              12,
+              18
+            ],
+            "text": "5 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-16T06:00:00+07:00",
+            "span": [
+              27,
+              32
+            ],
+            "text": "6 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            18,
+            27
+          ]
+        ]
+      }
+    },
+    "multi_goal": {
+      "text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u v\u00e0 \u0111\u1eb7t xe mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-11T05:30:00+07:00",
+      "r2": {
+        "raw_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u v\u00e0 \u0111\u1eb7t xe mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+        "effective_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u v\u00e0 \u0111\u1eb7t xe mai n\u0103m r\u01b0\u1ee1i",
+        "values": [
+          {
+            "kind": "amount",
+            "value": 13000000,
+            "span": [
+              7,
+              20
+            ],
+            "text": "m\u01b0\u1eddi ba tri\u1ec7u",
+            "superseded": false,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:00:00+07:00",
+            "span": [
+              35,
+              43
+            ],
+            "text": "n\u0103m gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T05:30:00+07:00",
+            "span": [
+              52,
+              60
+            ],
+            "text": "n\u0103m r\u01b0\u1ee1i",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            43,
+            52
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [
+          13000000
+        ],
+        "time": [
+          "2026-11-10T05:30:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u v\u00e0 \u0111\u1eb7t xe mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+        "effective_text": "n\u0103m r\u01b0\u1ee1i",
+        "values": [
+          {
+            "kind": "amount",
+            "value": 3000000,
+            "span": [
+              12,
+              20
+            ],
+            "text": "ba tri\u1ec7u",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:00:00+07:00",
+            "span": [
+              35,
+              43
+            ],
+            "text": "n\u0103m gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T05:30:00+07:00",
+            "span": [
+              52,
+              60
+            ],
+            "text": "n\u0103m r\u01b0\u1ee1i",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            43,
+            52
+          ]
+        ]
+      }
+    },
+    "year_rollover": {
+      "text": "mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+      "context": {
+        "current_time": "2026-12-31T23:50:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2027-01-01T09:00:00+07:00",
+      "r2": {
+        "raw_text": "mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+        "effective_text": "mai 9 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2027-01-01T08:00:00+07:00",
+            "span": [
+              4,
+              10
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-12-31T09:00:00+07:00",
+            "span": [
+              19,
+              24
+            ],
+            "text": "9 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            10,
+            19
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-12-31T09:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd",
+        "effective_text": "9 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2027-01-01T08:00:00+07:00",
+            "span": [
+              4,
+              10
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2027-01-01T09:00:00+07:00",
+            "span": [
+              19,
+              24
+            ],
+            "text": "9 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            10,
+            19
+          ]
+        ]
+      }
+    },
+    "relative_offset_basis": {
+      "text": "nh\u1eafc sau 2 gi\u1edd \u00e0 kh\u00f4ng, 3 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-10T13:00:00+07:00",
+      "r2": {
+        "raw_text": "nh\u1eafc sau 2 gi\u1edd \u00e0 kh\u00f4ng, 3 gi\u1edd",
+        "effective_text": "nh\u1eafc  3 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-10T03:00:00+07:00",
+            "span": [
+              24,
+              29
+            ],
+            "text": "3 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T12:00:00+07:00",
+            "span": [
+              5,
+              14
+            ],
+            "text": "sau 2 gi\u1edd",
+            "superseded": true,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T03:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "nh\u1eafc sau 2 gi\u1edd \u00e0 kh\u00f4ng, 3 gi\u1edd",
+        "effective_text": "3 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-10T03:00:00+07:00",
+            "span": [
+              24,
+              29
+            ],
+            "text": "3 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T12:00:00+07:00",
+            "span": [
+              5,
+              14
+            ],
+            "text": "sau 2 gi\u1edd",
+            "superseded": true,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ]
+        ]
+      }
+    },
+    "explicit_date_basis": {
+      "text": "2026-12-31T23:00:00+07:00 \u00e0 kh\u00f4ng, 22 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-12-31T22:00:00+07:00",
+      "r2": {
+        "raw_text": "2026-12-31T23:00:00+07:00 \u00e0 kh\u00f4ng, 22 gi\u1edd",
+        "effective_text": " 22 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-10T22:00:00+07:00",
+            "span": [
+              35,
+              41
+            ],
+            "text": "22 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-12-31T23:00:00+07:00",
+            "span": [
+              0,
+              25
+            ],
+            "text": "2026-12-31T23:00:00+07:00",
+            "superseded": true,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            26,
+            35
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T22:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "2026-12-31T23:00:00+07:00 \u00e0 kh\u00f4ng, 22 gi\u1edd",
+        "effective_text": "22 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-10T22:00:00+07:00",
+            "span": [
+              35,
+              41
+            ],
+            "text": "22 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-12-31T23:00:00+07:00",
+            "span": [
+              0,
+              25
+            ],
+            "text": "2026-12-31T23:00:00+07:00",
+            "superseded": true,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            26,
+            35
+          ]
+        ]
+      }
+    },
+    "chained_corrections": {
+      "text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd \u00e0 kh\u00f4ng 10 gi\u1edd",
+      "context": {
+        "current_time": "2026-11-10T10:00:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+      },
+      "expected_or_uncertain": "2026-11-11T10:00:00+07:00",
+      "r2": {
+        "raw_text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd \u00e0 kh\u00f4ng 10 gi\u1edd",
+        "effective_text": "nh\u1eafc mai 10 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T08:00:00+07:00",
+            "span": [
+              9,
+              15
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T09:00:00+07:00",
+            "span": [
+              24,
+              30
+            ],
+            "text": "9 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-10T10:00:00+07:00",
+            "span": [
+              38,
+              44
+            ],
+            "text": "10 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ],
+          [
+            30,
+            38
+          ]
+        ]
+      },
+      "critical": {
+        "phone": [],
+        "amount": [],
+        "time": [
+          "2026-11-10T10:00:00+07:00"
+        ],
+        "uncertainty": [],
+        "negation": false,
+        "correction": true
+      },
+      "sealed_r1": {
+        "raw_text": "nh\u1eafc mai 8 gi\u1edd \u00e0 kh\u00f4ng, 9 gi\u1edd \u00e0 kh\u00f4ng 10 gi\u1edd",
+        "effective_text": "10 gi\u1edd",
+        "values": [
+          {
+            "kind": "time",
+            "value": "2026-11-11T08:00:00+07:00",
+            "span": [
+              9,
+              15
+            ],
+            "text": "8 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T09:00:00+07:00",
+            "span": [
+              24,
+              30
+            ],
+            "text": "9 gi\u1edd ",
+            "superseded": true,
+            "uncertain": false
+          },
+          {
+            "kind": "time",
+            "value": "2026-11-11T10:00:00+07:00",
+            "span": [
+              38,
+              44
+            ],
+            "text": "10 gi\u1edd",
+            "superseded": false,
+            "uncertain": false
+          }
+        ],
+        "uncertainties": [],
+        "negation_spans": [],
+        "correction_spans": [
+          [
+            15,
+            24
+          ],
+          [
+            30,
+            38
+          ]
+        ]
+      }
+    }
+  },
+  "actual_infer_planner_request": {
+    "latest_user_text": "mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+    "normalization": {
+      "raw_text": "mai n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+      "effective_text": "mai n\u0103m r\u01b0\u1ee1i",
+      "values": [
+        {
+          "kind": "time",
+          "value": "2026-11-11T05:00:00+07:00",
+          "span": [
+            4,
+            12
+          ],
+          "text": "n\u0103m gi\u1edd ",
+          "superseded": true,
+          "uncertain": false
+        },
+        {
+          "kind": "time",
+          "value": "2026-11-10T05:30:00+07:00",
+          "span": [
+            21,
+            29
+          ],
+          "text": "n\u0103m r\u01b0\u1ee1i",
+          "superseded": false,
+          "uncertain": false
+        }
+      ],
+      "uncertainties": [],
+      "negation_spans": [],
+      "correction_spans": [
+        [
+          12,
+          21
+        ]
+      ]
+    },
+    "tool_calls": [],
+    "stop_reason": "DONE"
+  },
+  "equivalent_corrected_and_final_transcripts": {
+    "kind": "SUPPLIED_ASR_COMPARISON",
+    "identity": {
+      "policy": "same",
+      "fold": "authored"
+    },
+    "word_errors": 4,
+    "reference_words": 7,
+    "wer": 0.5714285714285714,
+    "char_errors": 17,
+    "reference_chars": 29,
+    "cer": 0.5862068965517241,
+    "records": [
+      {
+        "id": "x",
+        "word_errors": 4,
+        "reference_words": 7,
+        "wer": 0.5714285714285714,
+        "char_errors": 17,
+        "reference_chars": 29,
+        "cer": 0.5862068965517241,
+        "critical_slot_differences": {
+          "time": {
+            "reference": [
+              "2026-11-10T05:30:00+07:00"
+            ],
+            "candidate": [
+              "2026-11-11T05:30:00+07:00"
+            ]
+          },
+          "correction": {
+            "reference": true,
+            "candidate": false
+          }
+        },
+        "name_match": null,
+        "call_f1_delta": null,
+        "hash_match_delta": null,
+        "calls_changed": null,
+        "state_hash_changed": null,
+        "downstream_delta": null,
+        "timing_delta": null
+      }
+    ]
+  },
+  "evening_qualifier_unresolved": {
+    "r2": {
+      "raw_text": "mai 8 gi\u1edd t\u1ed1i \u00e0 kh\u00f4ng, 9 gi\u1edd",
+      "effective_text": "mai 8 gi\u1edd t\u1ed1i \u00e0 kh\u00f4ng, 9 gi\u1edd",
+      "values": [
+        {
+          "kind": "time",
+          "value": "2026-11-11T20:00:00+07:00",
+          "span": [
+            4,
+            10
+          ],
+          "text": "8 gi\u1edd ",
+          "superseded": false,
+          "uncertain": false
+        },
+        {
+          "kind": "time",
+          "value": "2026-11-10T09:00:00+07:00",
+          "span": [
+            23,
+            28
+          ],
+          "text": "9 gi\u1edd",
+          "superseded": false,
+          "uncertain": false
+        }
+      ],
+      "uncertainties": [
+        {
+          "span": [
+            14,
+            23
+          ],
+          "reason": "unresolved correction scope; raw intents retained"
+        }
+      ],
+      "negation_spans": [],
+      "correction_spans": [
+        [
+          14,
+          23
+        ]
+      ]
+    },
+    "critical": {
+      "phone": [],
+      "amount": [],
+      "time": [
+        "2026-11-11T20:00:00+07:00",
+        "2026-11-10T09:00:00+07:00"
+      ],
+      "uncertainty": [
+        {
+          "text": "\u00e0 kh\u00f4ng, ",
+          "reason": "unresolved correction scope; raw intents retained"
+        }
+      ],
+      "negation": false,
+      "correction": true
+    }
+  }
+}

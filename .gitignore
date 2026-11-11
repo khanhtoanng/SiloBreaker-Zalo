@@ -1,0 +1,21 @@
+.vscode/
+inputs/
+train+public_test.zip
+
+# Keep organizer data and local run outputs out of Git.
+/train+public_test/
+/local_lifemate_artifacts/
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+*.log
+
+# Generated copies of source and diffs from local verification.
+/LifeMate/docs/ai/work/**/snapshots/
+/LifeMate/docs/ai/work/**/*.patch
+
+# Local credentials and environment overrides.
+.env
+.env.*
+!.env.example

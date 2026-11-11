@@ -1,0 +1,16 @@
+{
+  "recommendation": "CHANGES_REQUESTED",
+  "clarification_check": "NO_MATERIAL_GAPS",
+  "round": 2,
+  "risk": "MEDIUM",
+  "application_identity": "79ba6a2e59ffba48035c2c03c549eb3ad820a5f04ef5a6f91a8b0b0b6a4a4b07",
+  "review_sha256": "76551de576d7fd2dc187f84cc80f6efd94d92528b7ac7648cdb8b6d13c4c2904",
+  "review_revision_copy_equal": true,
+  "findings": {
+    "F-01": "OPEN / MEDIUM / VERIFIED / new temporal-basis repro evidence",
+    "F-02": "CLOSED",
+    "F-03": "CLOSED"
+  },
+  "all_tests": "180 total / 179 PASS / one symlink-privilege SKIP",
+  "source_edits": false
+}

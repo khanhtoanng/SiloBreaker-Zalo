@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "application_identity": "e2db119b38994814c0689d339b1e9a334060db65678c35a949cd5af1038e6ea0",
+  "implementation_sha256": "7ef02741be8225778b474364cdb9c28299b1b421bbd0c23ca58738c3b3b1a98f",
+  "ac_rows": 36,
+  "task_rows": 14,
+  "missing_links": [],
+  "product_files_frozen": true
+}

@@ -1,0 +1,25 @@
+{
+  "base_model": "../../external/models/base",
+  "tokenizer_path": "../../external/models/base",
+  "trajectories": "../../external/trajectories.jsonl",
+  "split_config": "../../external/frozen.json",
+  "out": "../../external/adapters/lora-001",
+  "dataset_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "trajectories_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "split_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "template_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "rank": 16,
+  "alpha": 32,
+  "dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "epochs": 1.0,
+  "learning_rate": 0.0002,
+  "batch_size": 1,
+  "accumulation_steps": 8,
+  "seed": 20261109,
+  "precision": "fp32",
+  "max_sequence_length": 8192
+}

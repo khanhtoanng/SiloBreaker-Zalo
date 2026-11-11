@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+local_artifacts/
+models/
+data/
+*.jsonl
+!tests/fixtures/*.jsonl
+
+.venv-core/
+.mypy_cache/
+.ruff_cache/

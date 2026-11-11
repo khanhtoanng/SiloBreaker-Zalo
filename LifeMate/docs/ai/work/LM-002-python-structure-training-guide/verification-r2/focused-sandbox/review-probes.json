@@ -1,0 +1,163 @@
+{
+  "compound_amount": {
+    "raw_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u cho m\u1eb9",
+    "effective_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u cho m\u1eb9",
+    "values": [
+      {
+        "kind": "amount",
+        "value": 13000000,
+        "span": [
+          7,
+          20
+        ],
+        "text": "m\u01b0\u1eddi ba tri\u1ec7u",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "negative_amount": {
+    "raw_text": "chuy\u1ec3n -500 ngh\u00ecn",
+    "effective_text": "chuy\u1ec3n -500 ngh\u00ecn",
+    "values": [],
+    "uncertainties": [
+      {
+        "span": [
+          7,
+          17
+        ],
+        "reason": "unsupported or ambiguous complete amount"
+      }
+    ],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "separate_days": {
+    "raw_text": "\u0111\u1eb7t nh\u1eafc vi\u1ec7c h\u00f4m nay 17 gi\u1edd v\u00e0 mai 8 gi\u1edd",
+    "effective_text": "\u0111\u1eb7t nh\u1eafc vi\u1ec7c h\u00f4m nay 17 gi\u1edd v\u00e0 mai 8 gi\u1edd",
+    "values": [
+      {
+        "kind": "time",
+        "value": "2026-11-10T17:00:00+07:00",
+        "span": [
+          22,
+          29
+        ],
+        "text": "17 gi\u1edd ",
+        "superseded": false,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-11T08:00:00+07:00",
+        "span": [
+          36,
+          41
+        ],
+        "text": "8 gi\u1edd",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "local_correction": {
+    "raw_text": "chuy\u1ec3n 500 ngh\u00ecn v\u00e0 \u0111\u1eb7t xe n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+    "effective_text": "chuy\u1ec3n 500 ngh\u00ecn v\u00e0 \u0111\u1eb7t xe n\u0103m r\u01b0\u1ee1i",
+    "values": [
+      {
+        "kind": "amount",
+        "value": 500000,
+        "span": [
+          7,
+          16
+        ],
+        "text": "500 ngh\u00ecn",
+        "superseded": false,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-10T05:00:00+07:00",
+        "span": [
+          27,
+          35
+        ],
+        "text": "n\u0103m gi\u1edd ",
+        "superseded": true,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-10T05:30:00+07:00",
+        "span": [
+          44,
+          52
+        ],
+        "text": "n\u0103m r\u01b0\u1ee1i",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": [
+      [
+        35,
+        44
+      ]
+    ]
+  },
+  "runtime_smoke_read_once": {
+    "prediction": {
+      "id": "synthetic_1",
+      "tool_calls": [
+        {
+          "name": "contacts.search",
+          "arguments": {}
+        }
+      ],
+      "state_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "stop_reason": "DONE",
+    "steps": [
+      {
+        "step": 0,
+        "proposal": {
+          "kind": "CALL",
+          "tool_name": "contacts.search",
+          "arguments": {}
+        },
+        "usage": {},
+        "reference_provenance": [],
+        "observation": {
+          "name": "contacts.search",
+          "arguments": {},
+          "result": {
+            "ok": true,
+            "done": true
+          },
+          "outcome": "READ_OBSERVATION"
+        }
+      },
+      {
+        "step": 1,
+        "proposal": {
+          "kind": "DONE"
+        },
+        "usage": {}
+      }
+    ]
+  },
+  "utility_output_inside_kit": {
+    "exit_code": 1,
+    "output_created_inside_protected_kit": false,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\scripts\\check_trajectories.py\", line 25, in <module>\n    out = external_output(\n          ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\src\\lifemate\\artifacts.py\", line 30, in external_output\n    raise ValueError(f\"Output overlaps source/protected input: {path}\")\nValueError: Output overlaps source/protected input: C:\\Users\\nktoan\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{57cf6418-ebbb-4fda-afb7-f903ed8aeaae}\\Temp\\tmp30doz81n\\kit\\forbidden-report.json\n"
+  }
+}

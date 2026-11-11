@@ -1,0 +1,1716 @@
+{
+  "baseline_identity": "c38a7def852406a3411f9c9dc5ee1e1b6e95cadf8b9e73d3452cf75b95608a24",
+  "live_application_identity": "79ba6a2e59ffba48035c2c03c549eb3ad820a5f04ef5a6f91a8b0b0b6a4a4b07",
+  "baseline_files": 34,
+  "current_files": 102,
+  "changed_file_count": 97,
+  "added_files": 68,
+  "modified_files": 29,
+  "deletions": 0,
+  "out_of_grant": [],
+  "changes": [
+    {
+      "path": ".dockerignore",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": ".dockerignore",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 142,
+        "sha256": "52436091024bfa30886ca337d6204d9944bc618145d8fb4aac62e94fcb34a6e7",
+        "link_target": null
+      }
+    },
+    {
+      "path": ".gitignore",
+      "status": "MODIFIED",
+      "before": {
+        "length": 114,
+        "link_target": null,
+        "mode": 438,
+        "path": ".gitignore",
+        "sha256": "182c94814e23ba3e3d8362cef5c882be921b98bb155bf21f63e5300cc75ff4bc",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": ".gitignore",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 168,
+        "sha256": "ff79c85eadd23e1bed23db3bc2850ea106151678cdd87134178b223092307f22",
+        "link_target": null
+      }
+    },
+    {
+      "path": "Dockerfile",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "Dockerfile",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 609,
+        "sha256": "a6ab1cb0f9dee78daa9ca9b95818455c1e72c3e709910b380f05cd15952c461f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "MANIFEST.in",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "MANIFEST.in",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 443,
+        "sha256": "10ea6f366125ea07a0d9d0e158777e250359960157b6db019a54c8c91577b094",
+        "link_target": null
+      }
+    },
+    {
+      "path": "README.md",
+      "status": "MODIFIED",
+      "before": {
+        "length": 10047,
+        "link_target": null,
+        "mode": 438,
+        "path": "README.md",
+        "sha256": "792210137851f0cadef5964a4165a758a1b3329487f1a05f840b1434719a4fd2",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "README.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 11278,
+        "sha256": "755a3923abb98620b277710ad15960f6a94fe353494703602525a1f85e741326",
+        "link_target": null
+      }
+    },
+    {
+      "path": "configs",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "configs",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "configs/evaluation.json",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "configs/evaluation.json",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 245,
+        "sha256": "b6ab6fc68dc179df60338b6637356d35141258402b9f53b00eb61ebf56ff70e5",
+        "link_target": null
+      }
+    },
+    {
+      "path": "configs/inference.audio.json",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "configs/inference.audio.json",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 390,
+        "sha256": "39ac1a826903b810ae5e354e30ee98a06c6dbe9adc92a0449862942fbff6189b",
+        "link_target": null
+      }
+    },
+    {
+      "path": "configs/inference.ollama.json",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "configs/inference.ollama.json",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 424,
+        "sha256": "5cfe51509e7777e91fcf35e03f6c8096a8eb73ee828e393e29e2bbc2d9a24f3f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "configs/training.lora.json",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "configs/training.lora.json",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 894,
+        "sha256": "dda614412fad941c32b9c2859f6ebbb6cf1f500c406be2f58988a64b56a08704",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/architecture.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/architecture.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5917,
+        "sha256": "0dafbc7ac2fb7c7387279b00e94fcf24f28bbaa71754c8437d1e2df7fa05fd1d",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/edge_case_coverage.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/edge_case_coverage.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 10571,
+        "sha256": "2a0f83d38372770ef628758fd30ef9f3226378aa4c3d533a4ece22459f66d112",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/local_training.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/local_training.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 13130,
+        "sha256": "0efcdcd4f1fe070663a56c88fb9524e6d06ee78b7ba830abb0bfc9441bc44a15",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/migration.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/migration.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2142,
+        "sha256": "e5fb5d1fb64dc7d4f3c542efb0a43193b971732d6d69cf7cb511aeab25efcc5c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/offline_packaging.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/offline_packaging.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3237,
+        "sha256": "44a0ddfc7ac032bef966b0339ccd9fd0bd46f897e20af533d7f4277593d7fb01",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/ollama_local.md",
+      "status": "MODIFIED",
+      "before": {
+        "length": 4952,
+        "link_target": null,
+        "mode": 438,
+        "path": "docs/ollama_local.md",
+        "sha256": "8bb824bc0e83c03a6f0e1768d35cc5ef3eb7f1a3693bda2c93a8d741e2661c39",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "docs/ollama_local.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5900,
+        "sha256": "24b7c8f8a16dc436d36356d4015b763542cb1d0dad415edb40eb6f68be8e4660",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/operator_guide.md",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "docs/operator_guide.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 10541,
+        "sha256": "7c9aaa202a1824008d06b6fb81eeed4d9405d9c92302fe9820f99cb5561ca769",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/p0_coverage.md",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2719,
+        "link_target": null,
+        "mode": 438,
+        "path": "docs/p0_coverage.md",
+        "sha256": "e5a7a1013fda0730b5bbf021ecc1810258b9fe6b217541540368f29537080e6e",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "docs/p0_coverage.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3609,
+        "sha256": "36e00ac9e7f706ca6994cc0aa8d146251b9dc7ccb62c964c27503e57d1f694ef",
+        "link_target": null
+      }
+    },
+    {
+      "path": "docs/verification.md",
+      "status": "MODIFIED",
+      "before": {
+        "length": 5286,
+        "link_target": null,
+        "mode": 438,
+        "path": "docs/verification.md",
+        "sha256": "d988456fce24f9ead7a8fe871b83a269905c501cbad11872a2dbf8c5773f200e",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "docs/verification.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 6217,
+        "sha256": "24d2348b21d4af2eebebb90d0d8cdf55c80cde34adf29d09e61f673a343818ae",
+        "link_target": null
+      }
+    },
+    {
+      "path": "predict.sh",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "predict.sh",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 55,
+        "sha256": "1fbaf3e502a7a12a1c8de0a9c69f4ffe80ee6e3a6635feedcaf2761e7afabc3d",
+        "link_target": null
+      }
+    },
+    {
+      "path": "pyproject.toml",
+      "status": "MODIFIED",
+      "before": {
+        "length": 476,
+        "link_target": null,
+        "mode": 438,
+        "path": "pyproject.toml",
+        "sha256": "20b76029336473b94cb48278c5190e0cfa73d9c3053c7f8156c701dc605b982a",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "pyproject.toml",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1200,
+        "sha256": "166647dc630a607c3fb9d876a7cbdd2f55772a8e24437362d6485806625aa491",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/check_evaluator.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1836,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/check_evaluator.py",
+        "sha256": "9c602ffa6a09dd3ab27e0d6b0b5e1996630dc30b7c9de0199a9d94dd0520799a",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/check_evaluator.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2068,
+        "sha256": "25a3391e72dc6eefd2daf7ad882e80b739a6db425dcc3d33dde37533bedd5112",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/check_trajectories.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 3159,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/check_trajectories.py",
+        "sha256": "22e46241df62157b1a8e1f465aeea1789ba176215209a49466825beab615d442",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/check_trajectories.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3979,
+        "sha256": "867b73ca57a528cb1598bc62428f4981e7bd9a3e0f1ad4ac68700ea0ba19efa3",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/lifemate.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 225,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/lifemate.py",
+        "sha256": "f8ee6886e4b9acd60abb6e49a938aeacd50f9bea05d0562c04838c9df433eca5",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/lifemate.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 236,
+        "sha256": "7c823e68843355894e51eeacea90d7fdcfe17d9b79480e3c81ff0a8dd06a7c26",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/predict.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "scripts/predict.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 282,
+        "sha256": "d68c10227f9f3876df4c258257457e13c1d193610800b303180447ee7e86ce3b",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/replay_gold.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1231,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/replay_gold.py",
+        "sha256": "0b939f008568b4221440c5d387d237a4f37e7963135d713a1e92124b92cdc87f",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/replay_gold.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 281,
+        "sha256": "b8dbf735a2558b8596985bdaf3c9fd7ebefa790ff1685e655732f865e495dc49",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/smoke_ollama.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1535,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/smoke_ollama.py",
+        "sha256": "68fffdcd3c38bef0c6d8f0baef01e7f28fdfbe982bf4c75aba7525d482392c3a",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/smoke_ollama.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1694,
+        "sha256": "091f3aac163752137d48e46632c0c0cc53052e676000cebb429d6df435c22e9c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/smoke_runtime.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2071,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/smoke_runtime.py",
+        "sha256": "d3e7794b100d0353ec9cdcedf6923919255f0073f9dcb9902976a1e6add2b1e7",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/smoke_runtime.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3763,
+        "sha256": "b2bd8f3369f33e699e70152f3424531efa065bc477bcbf0b2554875c33811750",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/train_lora.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "scripts/train_lora.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 280,
+        "sha256": "c50f4bc3d0fa4827470bd5eebb90927d58c8aa5da3510feb7f44da49e546c5e9",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "scripts/verify_package.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 288,
+        "sha256": "5b117a9d8e2a31a40df4e3ba6757e99483005c78ecc08330cf5088082255fe19",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/__init__.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 72,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/__init__.py",
+        "sha256": "e4a441c4279ae6cd3b03dc2fd8a98fdad9404503b6960f7f8621d20392bb3288",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 73,
+        "sha256": "a317f427fb7e9edaa51f19b27e443223c02101eb24c8aa887b9fe69cb8fa977f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/__main__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/__main__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 65,
+        "sha256": "102942c02cdbea1e98069b7486b9c6e21d2694d84d78fca0ff104d352566d68b",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/__init__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 32,
+        "sha256": "8846faa74fc3d4573a719206122e70813f68560fff8857db9bc9bd0a756647eb",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/ollama.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/ollama.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 9816,
+        "sha256": "e38207512a88201a32519c1639939d3e4a42946d7b9b85fb0647c90570e41842",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/protocols.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/protocols.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 939,
+        "sha256": "8d7e55cfe64c30897b17afb03c157b868717a6814f956b8a115715ab39a70d14",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/sdk.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/sdk.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1364,
+        "sha256": "f7c42f3b4dbb363666920c024518737785ae9bd3b44cfe08f46445556158bbff",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/transformers.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/transformers.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5309,
+        "sha256": "6b4705d4c7351903e36698ac7778e43965fb29f177383729874993c0b3834e3b",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/adapters/whisper.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/adapters/whisper.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5434,
+        "sha256": "cbac690b575571b6bead3464efd9097a81bf9407d5f10c2561c76ef7fb4ded5d",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/agent_loop.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 4284,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/agent_loop.py",
+        "sha256": "33b52a0cff16d3a9d1ac2216b90352157f3d49738e676ce2e57e37f6a8f3e6c8",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/agent_loop.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 191,
+        "sha256": "157d689d91a65bb83cd5e0b75e1d05326ee52b5eadcf95e09710230f9a14d1bd",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/artifacts.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/artifacts.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3787,
+        "sha256": "c9d878d0e49d771042b4287b83d5b0e6bf59101e4f8ef7cb1a62c9c15913b4c8",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/cli.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 8956,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/cli.py",
+        "sha256": "0050fbead402e760441bf82ea4f3842a50a964c57c26549e0e6c3212a8501361",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/cli.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4223,
+        "sha256": "73a125dfd4481600bb34b7b2ee4c0190e78d25ebedde28cfa57c71c6cc6f1f78",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/config.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/config.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5365,
+        "sha256": "8914670b9e05523eecfd4b0a3d3d20bc45a9ed4b0af3cd082a4971742f430bd7",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/context_builder.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1938,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/context_builder.py",
+        "sha256": "00be1368804a5aeb1e6670ffa726bfef7d80c8d02af12d6f009ba2249f61c386",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/context_builder.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 213,
+        "sha256": "e56e933d515e0084839009255be0ecc3cffd51875f02d9e292af0c1bce324a0f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/contracts.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/contracts.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 7019,
+        "sha256": "d0b5b00e55d779772b498591ca895e017f5e8061969cb8e10320bf95880f7db2",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/data",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data/__init__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/data/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 28,
+        "sha256": "ec1ccb92bc6215dfd28e1d06c12129fea4b2974fe92c2370840feabce4839b90",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data/kit.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/data/kit.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5919,
+        "sha256": "4197db5b2bb2b837184f5e40ccfd0b48f7eafd2a23eeaa1e68d271a70f197fbc",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data/replay.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/data/replay.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2606,
+        "sha256": "e27451cebecae9344c63dcb6df877fde9b9fdcd14aa76e5cc782e3f29be39f7e",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data/splits.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/data/splits.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2243,
+        "sha256": "98a3bb5abd6171d43a867a6b6c0ad50430e8746bbf17de21b366537362c95e4c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/data_loader.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 4945,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/data_loader.py",
+        "sha256": "a5c66475a2247509546ac8473741dc133a46e51647e861833fe5c2ffc11e808b",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/data_loader.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 642,
+        "sha256": "7a8a7752f78eca4eb089ccf795cd9ffbab65fea8b64291c33264feef84f7bc0c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/evaluation.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 4333,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/evaluation.py",
+        "sha256": "08f0e601b7bd127f93489f2d501b8953c27e9a57e7010448d9c13e37ef317e1b",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/evaluation.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 405,
+        "sha256": "9fca65992c09a0c58f7371e6b9aa4339ae266bed1cd65c02f62142a698107611",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/learning",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/learning",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/learning/__init__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/learning/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 32,
+        "sha256": "32984b455fa4ef92061098a9799bbe320459c2c6baf6c4f06001dd5a496f18b7",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/learning/serialization.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/learning/serialization.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3456,
+        "sha256": "21964ddbbddcff87ca0de9b0225cccac15cd53ce40f1124ec3831b1ba572c5ce",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/learning/trainer.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/learning/trainer.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 12499,
+        "sha256": "64e5a9c1c850c6869d7a6c505cfd4bba9ede4be256e3fd2b331729f1fa08b9aa",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/learning/trajectories.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/learning/trajectories.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3394,
+        "sha256": "96184793b5b06e04df20b045dc4d461a2b2ab8dd9fa072a0e4b31c32c18d614f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/metrics",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics/__init__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/metrics/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 31,
+        "sha256": "686974d92794fe0f4804492f296aafd7a27e1b3e29dbb39b00c4d26494264d33",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics/asr.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/metrics/asr.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4519,
+        "sha256": "ba0068eb5eb475f022cfba771ef345cf4cd327962fdef6ebbf5938db50f5241a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics/proxy.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/metrics/proxy.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5257,
+        "sha256": "c3eab9c0fdb1fee4b53959ffe96746c2fecb9297b9880c832e82f347d286b3da",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics/reports.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/metrics/reports.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3670,
+        "sha256": "dfbd2cfa3aa16ade2e7de29ffe604c6415d546118b6169e2b7d46191c7464e20",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/ollama_policy.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 7597,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/ollama_policy.py",
+        "sha256": "85e9c504c584438968cf53a2f9e89ec58df64038704d5f43cd6a0e97b4449437",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/ollama_policy.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 347,
+        "sha256": "6681dd3902078e902903c9fd4cace455509ca620b5a433d3fd0fb62cbf70caa6",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/policy.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2700,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/policy.py",
+        "sha256": "3c8740f21b12e2c423b3b4942dc40a84f2fd1500842453eb224d624424436cbe",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/policy.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 151,
+        "sha256": "9b2e2839e3ef99d0649892c1f32b9ad833e454fb97af4352a74d87dfa58d1724",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/provenance.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/provenance.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1899,
+        "sha256": "41b4ca30dfa4d97f259bf87347ca8a6d0c0a4a89a04e49f31e6419e24bbf6a9a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/py.typed",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/py.typed",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/references.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 3161,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/references.py",
+        "sha256": "b1dc9e7e95637d22fccbe03ba891df123fb79503047e4da646a482ed024ef777",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/references.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 229,
+        "sha256": "b71d5c4bc200abb3f3707544f4bf799f26f8aac869b89a8934f0d1e1a23b150a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/replay.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2109,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/replay.py",
+        "sha256": "474e1b3fd9f17cddf026d1e6f0a8d0f1cf15b59c9595eecc484c65a6c8370082",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/replay.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 141,
+        "sha256": "c6c2c6117082b020444566cddbeaa8b6d1eec6b1d4f761508658d8c2333012d5",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime",
+        "type": "directory",
+        "mode": 511,
+        "windows_attributes": 16,
+        "length": null,
+        "sha256": null,
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/__init__.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/__init__.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 31,
+        "sha256": "0805cafd7101c9c8c24936d43354a549385d272e635e65cb5596b25f3969331a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/context.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/context.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2458,
+        "sha256": "89a4e31ce6bac5ecf603dbccee37f9dc160a5bec85a558060771a63b7e20f636",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/goals.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/goals.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 9816,
+        "sha256": "8825b91b24730b9f6417efdf2bc0f28f052bcc3c4f5fc3d1dda56f14451aa1c8",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/loop.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/loop.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 10468,
+        "sha256": "67d8f3228226927f1f5f80faaf50082b4d48fec6d20df317c96745d1df8e0157",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/normalize.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/normalize.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 12162,
+        "sha256": "6c5bfd69679851c7cc6a1fa7b3a14793eaed60d9736063943def6d1aba7e1e09",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/outcomes.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/outcomes.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 310,
+        "sha256": "31919f098a52386548865d3c5639014f85400cffa611887ee05916884f8c9d96",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/references.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/references.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 8019,
+        "sha256": "8c2368ed9e4b5bbb8d764bc87d667de9131a5c471ee6625c62c32ceb1e0f9c1a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/validation.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/runtime/validation.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 9101,
+        "sha256": "678e1e8ff0aeced8ce4b30e6bf02685e0f39d3b0bc64f2da18a7d27d2edd091a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/submission.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1811,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/submission.py",
+        "sha256": "b887583b823976783efa61463013b49a16d61de8381f05415995435abac41ffc",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/submission.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1751,
+        "sha256": "d33db2422ca527ed9999f4389f172e7eaee2f80e6eafcdbfde2d8b89bafa484c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/toolenv_adapter.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1190,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/toolenv_adapter.py",
+        "sha256": "3bc324ea507b3d335ac65051e75f1fba92596316f847f25052c07a531abd6c2b",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/toolenv_adapter.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 195,
+        "sha256": "ee86032f594c7d6a3640870d965e6c9e274f33d09b39adf4a74e3543a450fe2e",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/trajectory_builder.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2259,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/trajectory_builder.py",
+        "sha256": "b79ed5c9384e92c491c77d05f2f93ccdc3d40959b53651815fabbc60f0e4dc01",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/trajectory_builder.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 231,
+        "sha256": "5e80b99e704fe0c029fae5d32e8dad7171afe3c2e5959afeb07255db4c16dd8c",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/validator.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 7719,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/validator.py",
+        "sha256": "38f12736afe8e9ce5564751d0816148f36c58e052d081aa41d61814e5f1aaec8",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/validator.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 491,
+        "sha256": "d86f29df1686e67ae49d4ad786df892fc7a36282b7228d0864151f53d3b7e37a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/workflows.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "src/lifemate/workflows.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 16648,
+        "sha256": "16aa9d62662a6ca5c7c0154eb3bf3628b2ad365c4e96157c6ee221108f536e4d",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_artifacts.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_artifacts.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5328,
+        "sha256": "e36ef2adb152ede86505783774c0955f1c6d84075750f86d366e140fd4bb1b46",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_asr_metrics.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_asr_metrics.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3252,
+        "sha256": "fc458215a5484522e6e69bf851d2ba708e5dfa6d4a4a3a44a15615930b9897ec",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_audio.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_audio.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4155,
+        "sha256": "42d87de899b7468dcabbfc41c1e098618f94674c6794ab6f19ce3231dc7e4544",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_backends.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_backends.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4205,
+        "sha256": "86b5fb8a3d5d5113d312e535d62cb94ccdcdd3de449e2805dd7ec419e667f529",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_cli.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_cli.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 22403,
+        "sha256": "fd6d999e8283ce4972664af5c7117c2d7b636b2ffe15ba74de64bb1c344bf7f0",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_context.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_context.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 804,
+        "sha256": "a95f2196774efabd53dfb525759910041b0f3eb1fa41721e360a6d68579e3d42",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_contracts.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3437,
+        "sha256": "9f9a54860619b486cdd56ca9e21ff2ee329ff1eaa6d0cd3a806c76d57b55ca90",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_data.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_data.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3457,
+        "sha256": "96a41c93cf3ed3ba53341055adaf1d90bc585f0a1e5de60226b4309def80d3c6",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_evaluation.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 1300,
+        "sha256": "ae3940951ab14262f72a29d1f56afa770eaa4a5026fed5d5ef4f189463763a66",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_goals.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_goals.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 5202,
+        "sha256": "6c63197d93d961da753d3e4e489e01b3e3e9c1ce5ece3c0671caca92d23d563f",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_guides.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_guides.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2138,
+        "sha256": "b00c6ab0eddd2b92768a3d16814019fc791547860d7dd315250bd3d0a3621b3a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_loop.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_loop.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 6553,
+        "sha256": "ab1886cbca9f89a9a41cedf2358a795b85598f8b2981758d30e8c08be03b3b0a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_normalize.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_normalize.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 6663,
+        "sha256": "a335ebf159c55620789c809e7ecef5fe08f226b41edde024c4bff334bb9be6be",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_ollama.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 5657,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_ollama.py",
+        "sha256": "563f22bba8a2647470bf89669932ce222359ca1927503690fc4e3a7f81ac6798",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_ollama.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 6191,
+        "sha256": "8fa23bc6368f8c3fee3f541f651e2e4ded9ab0ad4e6b1f0f54968d06d0736f5b",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_packaging.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_packaging.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 886,
+        "sha256": "e723c66132fe9410b628611c903fa4df6a783c8fce472f83ff54a5fb572e60a6",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_preparation.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_preparation.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3837,
+        "sha256": "d4b4ab13dfeff4c364cae486a68ce281de5a2ea69f4b72668d0492890ea11c93",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_references.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_references.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4957,
+        "sha256": "dfd972410d9b743dcd7f65526dfa752e156c530f6cc52d61fae74767445541a1",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_runtime.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 18847,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_runtime.py",
+        "sha256": "76a47bd58ddfab034a633a2dcc5905a5541cf0866b93d76e70866dc31cdc5b5c",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_runtime.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 22447,
+        "sha256": "06351007d16e8bae3b689dff3062e1cb6b92243271d4ef284605d0c5729b22b2",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_sdk_contract.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 6340,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_sdk_contract.py",
+        "sha256": "f10687bc79a7efb69fabd60e4e43229e48fe88afb650bab151b15f89808aeddf",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_sdk_contract.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 9902,
+        "sha256": "2d01ed1348d8974b578f872f48b2667e85a0833f26180fe2f5bfbcb2f2930075",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_training.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_training.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 12070,
+        "sha256": "e0535771c1ea7753234d36ab521226ebe60d65bc0926b79aa6f782e5cb96adda",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_validation.py",
+      "status": "ADDED",
+      "before": null,
+      "after": {
+        "path": "tests/test_validation.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2329,
+        "sha256": "c7ed8d09cdc0b8f20e2b1b7103dd8ffce7acacb466f15d977346990d565dfce4",
+        "link_target": null
+      }
+    }
+  ],
+  "test_integrity": [
+    {
+      "path": "tests/test_runtime.py",
+      "original_methods": 42,
+      "current_methods": 42,
+      "original_assertions": 76,
+      "current_assertions": 77,
+      "original_assertions_retained": true
+    },
+    {
+      "path": "tests/test_ollama.py",
+      "original_methods": 13,
+      "current_methods": 13,
+      "original_assertions": 28,
+      "current_assertions": 28,
+      "original_assertions_retained": true
+    },
+    {
+      "path": "tests/test_sdk_contract.py",
+      "original_methods": 13,
+      "current_methods": 18,
+      "original_assertions": 33,
+      "current_assertions": 44,
+      "original_assertions_retained": true
+    }
+  ],
+  "diff_path": "docs\\ai\\work\\LM-002-python-structure-training-guide\\implementation-full-diff-r2.patch",
+  "diff_sha256": "037d468dc621c64f375fd533a28ced062123083c742cc302c1e9af754c991ca6",
+  "diff_lines": 9558
+}

@@ -1,0 +1,146 @@
+{
+  "compound_amount": {
+    "raw_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u cho m\u1eb9",
+    "effective_text": "chuy\u1ec3n m\u01b0\u1eddi ba tri\u1ec7u cho m\u1eb9",
+    "values": [
+      {
+        "kind": "amount",
+        "value": 3000000,
+        "span": [
+          12,
+          20
+        ],
+        "text": "ba tri\u1ec7u",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "negative_amount": {
+    "raw_text": "chuy\u1ec3n -500 ngh\u00ecn",
+    "effective_text": "chuy\u1ec3n -500 ngh\u00ecn",
+    "values": [
+      {
+        "kind": "amount",
+        "value": 500000,
+        "span": [
+          8,
+          17
+        ],
+        "text": "500 ngh\u00ecn",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "separate_days": {
+    "raw_text": "\u0111\u1eb7t nh\u1eafc vi\u1ec7c h\u00f4m nay 17 gi\u1edd v\u00e0 mai 8 gi\u1edd",
+    "effective_text": "\u0111\u1eb7t nh\u1eafc vi\u1ec7c h\u00f4m nay 17 gi\u1edd v\u00e0 mai 8 gi\u1edd",
+    "values": [
+      {
+        "kind": "time",
+        "value": "2026-11-11T17:00:00+07:00",
+        "span": [
+          22,
+          29
+        ],
+        "text": "17 gi\u1edd ",
+        "superseded": false,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-11T08:00:00+07:00",
+        "span": [
+          36,
+          41
+        ],
+        "text": "8 gi\u1edd",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": []
+  },
+  "local_correction": {
+    "raw_text": "chuy\u1ec3n 500 ngh\u00ecn v\u00e0 \u0111\u1eb7t xe n\u0103m gi\u1edd \u00e0 kh\u00f4ng, n\u0103m r\u01b0\u1ee1i",
+    "effective_text": "n\u0103m r\u01b0\u1ee1i",
+    "values": [
+      {
+        "kind": "amount",
+        "value": 500000,
+        "span": [
+          7,
+          16
+        ],
+        "text": "500 ngh\u00ecn",
+        "superseded": true,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-10T05:00:00+07:00",
+        "span": [
+          27,
+          35
+        ],
+        "text": "n\u0103m gi\u1edd ",
+        "superseded": true,
+        "uncertain": false
+      },
+      {
+        "kind": "time",
+        "value": "2026-11-10T05:30:00+07:00",
+        "span": [
+          44,
+          52
+        ],
+        "text": "n\u0103m r\u01b0\u1ee1i",
+        "superseded": false,
+        "uncertain": false
+      }
+    ],
+    "uncertainties": [],
+    "negation_spans": [],
+    "correction_spans": [
+      [
+        35,
+        44
+      ]
+    ]
+  },
+  "runtime_smoke_read_once": {
+    "prediction": {
+      "id": "synthetic_1",
+      "tool_calls": [],
+      "state_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "stop_reason": "BLOCKED",
+    "steps": [
+      {
+        "planning_rejection": "ValidationError: 4 validation errors for GoalPlan\ngoals\n  Field required [type=missing]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nkind\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\ntool_name\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\narguments\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+      },
+      {
+        "planning_rejection": "ValidationError: 2 validation errors for GoalPlan\ngoals\n  Field required [type=missing]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nkind\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+      },
+      {
+        "error_type": "Rejected",
+        "error": "Goal planning unresolved"
+      }
+    ]
+  },
+  "utility_output_inside_kit": {
+    "exit_code": 0,
+    "output_created_inside_protected_kit": true,
+    "stdout": "{\"status\": \"PASS\", \"kind\": \"TRAIN_TRAJECTORY_STRUCTURE_NOT_MODEL\", \"scenarios\": 2, \"rows\": 2, \"counts\": {\"fit\": 1, \"DONE\": 2, \"validation\": 1}, \"bytes\": 547}\n",
+    "stderr": ""
+  }
+}

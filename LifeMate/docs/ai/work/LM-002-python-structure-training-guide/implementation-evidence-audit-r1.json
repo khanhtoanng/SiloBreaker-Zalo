@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "approved_input_hashes": {
+    "source.md": "ab1e5a069dc9c2379226c0e475f35b9d1992da9416175ec2d2a15e042c5f0205",
+    "intent.md": "d7c8e8ada44f76feaaa074b8f19c575e71610d618038b7ac0327362ba6e6e5a6",
+    "spec.md": "84f6a227878423ec886f3575b523f6b3e7aa5b7d0e8e1ba7d1da1aa4c9ad12a0",
+    "plan.md": "722c2d624027dc17e4697f4648be5f6f3abe7a20e4087239807582c1059905ba"
+  },
+  "named_K_check_references": 73,
+  "missing_named_checks": [],
+  "python_guide_snippets_parsed_not_executed": 1,
+  "archives": [
+    {
+      "path": "dist\\lifemate-0.1.0-py3-none-any.whl",
+      "members": 52,
+      "sha256": "d600230b72a9f3e36f321041757b2c4ab257d791964a2b89bec151ede3878402"
+    },
+    {
+      "path": "dist\\lifemate-0.1.0.tar.gz",
+      "members": 121,
+      "sha256": "46751e1a881257dfa888d214d13f745b12147411ffe2f4b44876d76bb061ab40"
+    }
+  ]
+}

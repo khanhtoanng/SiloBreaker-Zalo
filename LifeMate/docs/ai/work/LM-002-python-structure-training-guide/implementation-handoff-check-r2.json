@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "implementation_sha256": "2d5559db285ce8604a92d416fcb47f5c7a1e5de37a18a66868b425c1f8d31ee9",
+  "live_application_identity": "79ba6a2e59ffba48035c2c03c549eb3ad820a5f04ef5a6f91a8b0b0b6a4a4b07",
+  "full_diff_sha256": "037d468dc621c64f375fd533a28ced062123083c742cc302c1e9af754c991ca6",
+  "full_diff_lines": 9558,
+  "repair_diff_sha256": "104215fe280230d065727d0b39fa70d6d5a6d30fac1bd40438683d2b6804ea8b",
+  "repair_diff_lines": 850,
+  "application_files": 102,
+  "changed_files_vs_original": 97,
+  "repair_files": 9,
+  "out_of_grant": [],
+  "deletions": 0,
+  "all_16_final_command_exits_zero": true,
+  "AC_rows": 36,
+  "TASK_rows": 14,
+  "K_rows": 54,
+  "K_unique_methods": 63,
+  "archives": [
+    {
+      "path": "dist/lifemate-0.1.0-py3-none-any.whl",
+      "sha256": "9cb513cc7059f58284d15fa269ac392c4bd1246738681fac50432e21a685ff7b",
+      "owned_byte_matches": 47
+    },
+    {
+      "path": "dist/lifemate-0.1.0.tar.gz",
+      "sha256": "6d4e9b7684fae7633619771467b7d18e367bb8bfbd5ba077140315f3819ed2bd",
+      "owned_byte_matches": 100
+    }
+  ]
+}

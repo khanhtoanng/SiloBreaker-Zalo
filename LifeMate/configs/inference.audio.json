@@ -1,0 +1,13 @@
+{
+  "data_root": "../../external/kit",
+  "out": "../../external/runs/audio-001.jsonl",
+  "backend": "transformers",
+  "model_path": "../../external/models/base",
+  "tokenizer_path": "../../external/models/base",
+  "asr_path": "../../external/models/asr",
+  "split": "public_test",
+  "input_mode": "audio",
+  "selection": "all",
+  "sample_seconds": 25.0,
+  "max_decisions": 9
+}

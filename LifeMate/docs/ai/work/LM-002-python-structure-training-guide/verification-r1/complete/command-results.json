@@ -1,0 +1,94 @@
+{
+  "records": [
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\01-pip-check.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\02-unittest.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\03-compileall.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\04-ruff-check.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\05-ruff-format.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src/lifemate"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\06-mypy.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--no-isolation"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\07-build.log"
+    }
+  ]
+}

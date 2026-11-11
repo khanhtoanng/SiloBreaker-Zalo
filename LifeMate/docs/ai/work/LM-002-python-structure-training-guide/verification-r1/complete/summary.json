@@ -1,0 +1,110 @@
+{
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "env": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PIP_CACHE_DIR": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\pip-cache"
+  },
+  "records": [
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\01-pip-check.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\02-unittest.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\03-compileall.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\04-ruff-check.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\05-ruff-format.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src/lifemate"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\06-mypy.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate\\.venv-core\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--no-isolation"
+      ],
+      "cwd": "C:\\Users\\nktoan\\Downloads\\LifeMate_2026_Kit_Verified_Coding_Handoff\\LifeMate",
+      "exit_code": 0,
+      "log": "docs\\ai\\work\\LM-002-python-structure-training-guide\\verification-r1\\complete\\07-build.log"
+    }
+  ],
+  "package_membership": "PASS",
+  "archives": [
+    {
+      "path": "dist\\lifemate-0.1.0-py3-none-any.whl",
+      "sha256": "d600230b72a9f3e36f321041757b2c4ab257d791964a2b89bec151ede3878402"
+    },
+    {
+      "path": "dist\\lifemate-0.1.0.tar.gz",
+      "sha256": "46751e1a881257dfa888d214d13f745b12147411ffe2f4b44876d76bb061ab40"
+    }
+  ]
+}

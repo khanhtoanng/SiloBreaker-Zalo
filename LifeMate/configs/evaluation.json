@@ -1,0 +1,7 @@
+{
+  "data_root": "../../external/kit",
+  "out": "../../external/reports/oracle-001.json",
+  "split_config": "../../external/frozen.json",
+  "predictions": "../../external/runs/oracle-001.jsonl",
+  "replay": "../../external/replay.json"
+}

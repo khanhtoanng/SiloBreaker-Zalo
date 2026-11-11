@@ -1,0 +1,23 @@
+{
+  "python": "3.12.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "core_dev_versions": {
+    "pydantic": "2.14.3",
+    "tzdata": "2026.6",
+    "ruff": "0.17.4",
+    "mypy": "1.20.2",
+    "build": "1.6.1",
+    "setuptools": "84.2.1",
+    "wheel": "0.48.0"
+  },
+  "optional_runtime_available": {
+    "torch": false,
+    "transformers": false,
+    "trl": false,
+    "peft": false,
+    "datasets": false,
+    "soundfile": false,
+    "scipy": false,
+    "tokenizers": false
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "r1_identity": "e2db119b38994814c0689d339b1e9a334060db65678c35a949cd5af1038e6ea0",
+  "r2_live_identity": "79ba6a2e59ffba48035c2c03c549eb3ad820a5f04ef5a6f91a8b0b0b6a4a4b07",
+  "changed_files": [
+    {
+      "path": "docs/operator_guide.md",
+      "status": "MODIFIED",
+      "before": {
+        "length": 9463,
+        "link_target": null,
+        "mode": 438,
+        "path": "docs/operator_guide.md",
+        "sha256": "391757aff1d7c1d4e9415a48f34ced36d708fa44eca31a7a140ee4e52747cde2",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "docs/operator_guide.md",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 10541,
+        "sha256": "7c9aaa202a1824008d06b6fb81eeed4d9405d9c92302fe9820f99cb5561ca769",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/check_evaluator.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1964,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/check_evaluator.py",
+        "sha256": "db92c438ef8fbbc7fb27477030060fb870040f388814e04515b158e52a50f178",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/check_evaluator.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 2068,
+        "sha256": "25a3391e72dc6eefd2daf7ad882e80b739a6db425dcc3d33dde37533bedd5112",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/check_trajectories.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 3834,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/check_trajectories.py",
+        "sha256": "12ff584524b5d1e3f15c23eb2fce5f7ee83c86e9be89de9899ed5aad540d1329",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/check_trajectories.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3979,
+        "sha256": "867b73ca57a528cb1598bc62428f4981e7bd9a3e0f1ad4ac68700ea0ba19efa3",
+        "link_target": null
+      }
+    },
+    {
+      "path": "scripts/smoke_runtime.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 2391,
+        "link_target": null,
+        "mode": 438,
+        "path": "scripts/smoke_runtime.py",
+        "sha256": "41366f00e8dcb65947cfb1aa9b41527d89ce5a2b9f1d1ede52c06e365b66d370",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "scripts/smoke_runtime.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3763,
+        "sha256": "b2bd8f3369f33e699e70152f3424531efa065bc477bcbf0b2554875c33811750",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/metrics/asr.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 4279,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/metrics/asr.py",
+        "sha256": "94e87338cac3a30f9d97db286e586444d6ccb0c3d5d0f5a92a6d38a2e4d12571",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/metrics/asr.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 4519,
+        "sha256": "ba0068eb5eb475f022cfba771ef345cf4cd327962fdef6ebbf5938db50f5241a",
+        "link_target": null
+      }
+    },
+    {
+      "path": "src/lifemate/runtime/normalize.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 6906,
+        "link_target": null,
+        "mode": 438,
+        "path": "src/lifemate/runtime/normalize.py",
+        "sha256": "e7571fcc5752e61587bb4656012d947cee3e8a25a12572ec964228b5d1bd1aa1",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "src/lifemate/runtime/normalize.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 12162,
+        "sha256": "6c5bfd69679851c7cc6a1fa7b3a14793eaed60d9736063943def6d1aba7e1e09",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_asr_metrics.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 1983,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_asr_metrics.py",
+        "sha256": "8d0d53558a27ee232e1494c94dc560781f7ae7fcdc5fd533a4467873a569d40c",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_asr_metrics.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 3252,
+        "sha256": "fc458215a5484522e6e69bf851d2ba708e5dfa6d4a4a3a44a15615930b9897ec",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_cli.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 9633,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_cli.py",
+        "sha256": "0e1916d65fe9b0d12c7a9b37afd19b2c88335bce099cda49dded45d8d7849c1e",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_cli.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 22403,
+        "sha256": "fd6d999e8283ce4972664af5c7117c2d7b636b2ffe15ba74de64bb1c344bf7f0",
+        "link_target": null
+      }
+    },
+    {
+      "path": "tests/test_normalize.py",
+      "status": "MODIFIED",
+      "before": {
+        "length": 3015,
+        "link_target": null,
+        "mode": 438,
+        "path": "tests/test_normalize.py",
+        "sha256": "63dbf1ba14d45235c69661238a6901b01232b6c718e5b959421ce5359ad36027",
+        "type": "file",
+        "windows_attributes": 32
+      },
+      "after": {
+        "path": "tests/test_normalize.py",
+        "type": "file",
+        "mode": 438,
+        "windows_attributes": 32,
+        "length": 6663,
+        "sha256": "a335ebf159c55620789c809e7ecef5fe08f226b41edde024c4bff334bb9be6be",
+        "link_target": null
+      }
+    }
+  ],
+  "deletions": 0,
+  "r1_test_integrity": [
+    {
+      "path": "tests/test_artifacts.py",
+      "r1_methods": 9,
+      "r2_methods": 9,
+      "r1_assertions_retained": 19
+    },
+    {
+      "path": "tests/test_asr_metrics.py",
+      "r1_methods": 2,
+      "r2_methods": 3,
+      "r1_assertions_retained": 13
+    },
+    {
+      "path": "tests/test_audio.py",
+      "r1_methods": 5,
+      "r2_methods": 5,
+      "r1_assertions_retained": 14
+    },
+    {
+      "path": "tests/test_backends.py",
+      "r1_methods": 4,
+      "r2_methods": 4,
+      "r1_assertions_retained": 10
+    },
+    {
+      "path": "tests/test_cli.py",
+      "r1_methods": 7,
+      "r2_methods": 12,
+      "r1_assertions_retained": 33
+    },
+    {
+      "path": "tests/test_context.py",
+      "r1_methods": 2,
+      "r2_methods": 2,
+      "r1_assertions_retained": 5
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "r1_methods": 10,
+      "r2_methods": 10,
+      "r1_assertions_retained": 11
+    },
+    {
+      "path": "tests/test_data.py",
+      "r1_methods": 6,
+      "r2_methods": 6,
+      "r1_assertions_retained": 10
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "r1_methods": 2,
+      "r2_methods": 2,
+      "r1_assertions_retained": 4
+    },
+    {
+      "path": "tests/test_goals.py",
+      "r1_methods": 7,
+      "r2_methods": 7,
+      "r1_assertions_retained": 16
+    },
+    {
+      "path": "tests/test_guides.py",
+      "r1_methods": 2,
+      "r2_methods": 2,
+      "r1_assertions_retained": 8
+    },
+    {
+      "path": "tests/test_loop.py",
+      "r1_methods": 11,
+      "r2_methods": 11,
+      "r1_assertions_retained": 26
+    },
+    {
+      "path": "tests/test_normalize.py",
+      "r1_methods": 7,
+      "r2_methods": 10,
+      "r1_assertions_retained": 18
+    },
+    {
+      "path": "tests/test_ollama.py",
+      "r1_methods": 13,
+      "r2_methods": 13,
+      "r1_assertions_retained": 28
+    },
+    {
+      "path": "tests/test_packaging.py",
+      "r1_methods": 1,
+      "r2_methods": 1,
+      "r1_assertions_retained": 9
+    },
+    {
+      "path": "tests/test_preparation.py",
+      "r1_methods": 4,
+      "r2_methods": 4,
+      "r1_assertions_retained": 10
+    },
+    {
+      "path": "tests/test_references.py",
+      "r1_methods": 7,
+      "r2_methods": 7,
+      "r1_assertions_retained": 12
+    },
+    {
+      "path": "tests/test_runtime.py",
+      "r1_methods": 42,
+      "r2_methods": 42,
+      "r1_assertions_retained": 77
+    },
+    {
+      "path": "tests/test_sdk_contract.py",
+      "r1_methods": 18,
+      "r2_methods": 18,
+      "r1_assertions_retained": 44
+    },
+    {
+      "path": "tests/test_training.py",
+      "r1_methods": 8,
+      "r2_methods": 8,
+      "r1_assertions_retained": 35
+    },
+    {
+      "path": "tests/test_validation.py",
+      "r1_methods": 4,
+      "r2_methods": 4,
+      "r1_assertions_retained": 6
+    }
+  ],
+  "diff_sha256": "104215fe280230d065727d0b39fa70d6d5a6d30fac1bd40438683d2b6804ea8b",
+  "diff_lines": 850
+}
