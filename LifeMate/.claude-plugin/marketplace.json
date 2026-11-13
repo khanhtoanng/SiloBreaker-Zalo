@@ -1,0 +1,13 @@
+{
+  "name": "ai-sdlc-local",
+  "owner": {
+    "name": "Local AI SDLC"
+  },
+  "plugins": [
+    {
+      "name": "ai-sdlc",
+      "source": "./plugins/ai-sdlc",
+      "description": "Local SDLC execution and workspace setup"
+    }
+  ]
+}
