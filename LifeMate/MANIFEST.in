@@ -1,4 +1,5 @@
-include README.md pyproject.toml Dockerfile .dockerignore predict.sh
+include README.md pyproject.toml Dockerfile .dockerignore predict.sh start_jupyter.sh predict_notebook.ipynb
+include training_code/README.md
 recursive-include src/lifemate *.py py.typed
 recursive-include configs *.json
 recursive-include scripts *.py *.ps1

@@ -7,15 +7,19 @@ import json
 from ..contracts import Goal, GoalOccurrence, GoalPlan, json_loads
 from .validation import Rejected
 
-PLANNER_SYSTEM = """Return exactly a JSON object {"goals":[...]}. Each goal has id, intent,
-tool_name, arguments (only known explicit desired argument constraints), dependencies,
-condition (null or {tool_name,field,operator,value}), occurrences [{id,span:[start,end]}].
-Use only latest_user_text spans (Python character offsets). Represent each explicitly
-requested action once; repeated equal actions require distinct nonoverlapping spans.
-History resolves references only. Unsupported or withdrawn requests create no executable
-goals. Status/effect/observation claims are forbidden. Conditions name actual read tool
-and result field path, operator eq/ne/gt/ge/lt/le/contains and expected value. Output
-hypotheses only, with all installed tools available. Never invent a lookup result."""
+PLANNER_SYSTEM = """Plan what the latest Vietnamese request explicitly wants. Return one JSON object.
+For example, for latest_user_text 'Nhắn Lan đi', if sms.send is installed:
+{"goals":[{"id":"g1","intent":"Nhắn Lan","tool_name":"sms.send","arguments":{},"dependencies":[],"condition":null,"occurrences":[{"id":"o1","span":[0,8]}]}]}
+Use unique string goal and occurrence IDs, an arguments object (use {} when uncertain),
+and dependency IDs only for true prerequisites among explicit goals. Include the final
+tool even when some of its required arguments are missing. Put only known constraints
+that exactly match tool argument values into arguments. Use zero-based Python character
+offsets into latest_user_text, with an exclusive end. Repeated equal actions need distinct
+nonoverlapping spans. Include a read goal only when the user asks for its result.
+History resolves references. Return {"goals":[]} for unsupported or withdrawn requests.
+For a conditional goal, condition is {tool_name,field,operator,value}, using an eligible
+read tool, actual result field path, and operator eq/ne/gt/ge/lt/le/contains.
+Use installed tool names. Never claim effects or invent a lookup result."""
 
 
 class PolicyPlanner:

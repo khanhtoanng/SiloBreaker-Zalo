@@ -20,6 +20,7 @@ class StrictModel(BaseModel):
 
 
 Payload = dict[str, JsonValue]
+INFERENCE_SEED = 20261109
 
 
 def json_loads(raw: str) -> JsonValue:
@@ -131,6 +132,10 @@ class SubmissionRow(StrictModel):
     id: str = Field(min_length=1)
     tool_calls: list[ToolCall]
     state_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+
+class TimedSubmissionRow(SubmissionRow):
+    time: int = Field(ge=0)
 
 
 class ObservationRecord(ToolCall):

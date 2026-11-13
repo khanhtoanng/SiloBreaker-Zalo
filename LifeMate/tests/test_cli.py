@@ -591,6 +591,25 @@ class CliTests(unittest.TestCase):
                 json.loads(cfg.out.with_suffix(".run.json").read_text())["status"], "FAILED"
             )
 
+    def test_timed_submission_keeps_sdk_trace_and_exposes_timing(self):
+        with tempfile.TemporaryDirectory() as d:
+            cfg = self.kit(Path(d))
+            cfg = cfg.model_copy(update={"include_timing": True})
+            env = FakeEnv()
+            result = predict(
+                cfg,
+                policy_factory=lambda _: Policy([{"kind": "DONE"}], []),
+                asr_factory=lambda _: Mock(transcribe=Mock(return_value="nothing")),
+                env_factory=lambda *_: env,
+            )
+            row = json.loads(cfg.out.read_text())
+            self.assertEqual(row["tool_calls"], env.get_tool_calls())
+            self.assertEqual(row["state_hash"], env.get_state_hash())
+            self.assertIs(type(row.get("time")), int)
+            self.assertGreaterEqual(row["time"], 0)
+            self.assertGreaterEqual(result["model_load_seconds"], 0)
+            self.assertGreaterEqual(result["prediction_seconds"], 0)
+
     def test_replay_mismatch_preserves_nonzero_legacy_status(self):
         with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as raised:
             main(["replay"], dispatcher=lambda *a: {"counts": {"failed": 1}})

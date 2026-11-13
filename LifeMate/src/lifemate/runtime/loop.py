@@ -8,7 +8,7 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
-from ..adapters.protocols import Clock, GoalPlanner, Policy, Session
+from ..adapters.protocols import Clock, ContextOverflow, GoalPlanner, Policy, Session
 from ..adapters.sdk import open_env
 from ..config import RunConfig as RunConfig
 from ..contracts import DiagnosticRecord, InferenceSample, SubmissionRow
@@ -23,6 +23,10 @@ from .validation import Rejected, checked_call, parse_decision
 
 class SampleFailure(RuntimeError):
     diagnostic: dict
+
+
+class EmptyTranscript(Exception):
+    pass
 
 
 def infer(
@@ -83,6 +87,8 @@ def infer(
         timing["asr_seconds"] = sum(item["elapsed_seconds"] for item in asr_diagnostics)
         if not isinstance(sample.get("text"), str):
             raise ValueError("Missing latest request transcript")
+        if not sample["text"].strip():
+            raise EmptyTranscript
         sample["normalization"] = normalize(sample["text"], sample.get("context", {}))
         references = ReferenceIndex(sample)
         request = json.loads(compile_messages(sample, registry, [])[1]["content"])
@@ -138,6 +144,9 @@ def infer(
                         if pending
                         else "DONE"
                     )
+                    break
+                if not ledger.goals:
+                    reason = "DONE"
                     break
 
                 # All project semantic guards precede the final SDK validation.
@@ -214,11 +223,16 @@ def infer(
     except TimeoutError:
         reason = "TIMEOUT"
         diagnostics.append({"error_type": "TimeoutError"})
+    except EmptyTranscript:
+        reason = "EMPTY_TRANSCRIPT"
     except Rejected as exc:
         reason = "BLOCKED"
         diagnostics.append({"error_type": type(exc).__name__, "error": str(exc)})
+    except ContextOverflow:
+        reason = "CONTEXT_OVERFLOW"
+        diagnostics.append({"error_type": "ContextOverflow"})
     except Exception as exc:
-        reason = "CONTEXT_OVERFLOW" if "CONTEXT_OVERFLOW" in str(exc) else "RUNTIME_ERROR"
+        reason = "RUNTIME_ERROR"
         diagnostics.append({"error_type": type(exc).__name__})
         # Fatal transcription/context/runtime errors must not publish a complete submission.
         error = SampleFailure(reason)

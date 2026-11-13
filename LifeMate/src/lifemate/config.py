@@ -35,7 +35,7 @@ class InferenceConfig(RunConfig):
     selection: Literal["validation", "fit", "all"] = "validation"
     fold: Literal["grouped", "leave-app-out"] = "grouped"
     split_config: Path | None = None
-    backend: Literal["ollama", "transformers"] = "ollama"
+    backend: Literal["ollama", "transformers", "llama_cpp"] = "ollama"
     model_path: Path | None = None
     tokenizer_path: Path | None = None
     adapter_path: Path | None = None
@@ -43,6 +43,8 @@ class InferenceConfig(RunConfig):
     ollama_model: str = "qwen3:4b-instruct-2507-q4_K_M"
     ollama_url: str = "http://127.0.0.1:11434"
     limit: int | None = Field(default=None, ge=1)
+    include_timing: bool = False
+    llama_server_path: Path | None = None
 
     @model_validator(mode="after")
     def modes(self):
@@ -60,6 +62,10 @@ class InferenceConfig(RunConfig):
             raise ValueError("Test splits require explicit all selection")
         if self.backend == "transformers" and self.model_path is None:
             raise ValueError("Transformers requires model_path")
+        if self.backend == "llama_cpp" and (
+            self.model_path is None or self.llama_server_path is None
+        ):
+            raise ValueError("llama_cpp requires a local GGUF model_path and llama_server_path")
         if self.input_mode == "audio" and self.asr_path is None:
             raise ValueError("Audio requires local asr_path")
         return self
@@ -117,6 +123,7 @@ PATH_FIELDS = {
     "tokenizer_path",
     "adapter_path",
     "asr_path",
+    "llama_server_path",
     "base_model",
     "trajectories",
     "predictions",

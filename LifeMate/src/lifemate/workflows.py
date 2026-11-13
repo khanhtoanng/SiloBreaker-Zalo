@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import time
 from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 
 from .adapters.protocols import Asr, Clock, Policy, Session
@@ -20,7 +21,7 @@ from .config import (
     load_config,
     resolve_config_values,
 )
-from .contracts import RunMetadata, StrictModel, json_loads, json_object
+from .contracts import INFERENCE_SEED, RunMetadata, StrictModel, json_loads, json_object
 from .data.kit import (
     frozen_split,
     inference_input,
@@ -74,6 +75,15 @@ def selected_rows(config, root, rows):
 
 
 def create_policy(config: InferenceConfig) -> Policy:
+    if config.backend == "llama_cpp":
+        from .adapters.llama_cpp import LlamaCppPolicy
+
+        return LlamaCppPolicy(
+            config.llama_server_path,
+            config.model_path,
+            max_context_tokens=config.max_context_tokens,
+            max_new_tokens=config.max_new_tokens,
+        )
     if config.backend == "ollama":
         from .adapters.ollama import OllamaPolicy
 
@@ -95,6 +105,56 @@ def create_policy(config: InferenceConfig) -> Policy:
     )
 
 
+def seed_inference():
+    import random
+
+    import numpy as np
+    import torch
+
+    random.seed(INFERENCE_SEED)
+    np.random.seed(INFERENCE_SEED)
+    torch.manual_seed(INFERENCE_SEED)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+
+@dataclass(frozen=True)
+class PredictionModels:
+    policy: Policy
+    asr: Asr | None
+    load_seconds: float
+
+    def close(self):
+        close = getattr(self.policy, "close", None)
+        if close is not None:
+            close()
+
+
+def load_prediction_models(config, *, policy_factory=create_policy, asr_factory=None, clock=time):
+    started = clock.monotonic()
+    if policy_factory is create_policy and config.backend in {"transformers", "llama_cpp"}:
+        seed_inference()
+    policy = policy_factory(config)
+    asr = None
+    try:
+        if config.input_mode == "audio":
+            if asr_factory is None:
+                from .adapters.whisper import WhisperAsr
+
+                asr_factory = WhisperAsr
+            asr = asr_factory(config.asr_path)
+    except BaseException:
+        PredictionModels(policy, None, 0).close()
+        raise
+    return PredictionModels(policy, asr, clock.monotonic() - started)
+
+
+def prediction_inputs(config):
+    root = bundle(config.data_root, config.split)
+    rows = selected_rows(config, root, load_manifest(root, config.split))
+    return root, rows, load_catalog(root, config.split)
+
+
 def predict(
     config: InferenceConfig,
     *,
@@ -102,6 +162,8 @@ def predict(
     asr_factory: Callable[..., Asr] | None = None,
     env_factory: Callable[..., Session] | None = None,
     clock: Clock = time,
+    models: PredictionModels | None = None,
+    prepared_inputs=None,
 ) -> dict:
     root = bundle(config.data_root, config.split)
     inputs = [
@@ -111,11 +173,11 @@ def predict(
         config.tokenizer_path,
         config.adapter_path,
         config.asr_path,
+        config.llama_server_path,
         config.split_config,
     ]
-    artifacts = PredictionArtifacts(config.out, inputs=inputs)
-    rows = selected_rows(config, root, load_manifest(root, config.split))
-    catalog = load_catalog(root, config.split)
+    artifacts = PredictionArtifacts(config.out, inputs=inputs, include_timing=config.include_timing)
+    _, rows, catalog = prepared_inputs or prediction_inputs(config)
     # Validate every selected inference projection before optional backend/session setup.
     samples = [
         inference_input(row, oracle_text=config.input_mode == "oracle", split=config.split)
@@ -131,8 +193,9 @@ def predict(
         backend=config.backend,
         settings={
             **run_settings,
-            "seed": 20261109,
+            "seed": INFERENCE_SEED,
             "decoding": "greedy",
+            "include_timing": config.include_timing,
         },
         status="RUNNING",
         selected_ids=[r["id"] for r in rows],
@@ -149,9 +212,12 @@ def predict(
         root / config.split / "zaic_tools/__init__.py"
     )
     artifacts.start(metadata)
-    setup = clock.monotonic()
+    owns_models = models is None
     try:
-        policy = policy_factory(config)
+        models = models or load_prediction_models(
+            config, policy_factory=policy_factory, asr_factory=asr_factory, clock=clock
+        )
+        policy = models.policy
         available = getattr(policy, "metadata", {})
         model_metadata = {
             key: available[key]
@@ -181,15 +247,13 @@ def predict(
         if config.input_mode == "audio":
             from .adapters.whisper import prepare_audio
 
-            if asr_factory is None:
-                from .adapters.whisper import WhisperAsr
-
-                asr_factory = WhisperAsr
-            asr = asr_factory(config.asr_path)
+            asr = models.asr
+            if asr is None:
+                raise ValueError("Audio prediction requires a loaded ASR model")
             kwargs["prepare"] = lambda value, deadline: prepare_audio(
                 value, root / config.split / "audio", asr, deadline=deadline, clock=clock
             )
-        setup_seconds = clock.monotonic() - setup
+        prediction_seconds = 0.0
         for sample in samples:
             result, diagnostic = infer(
                 sample,
@@ -200,14 +264,25 @@ def predict(
                 runtime_config,
                 **kwargs,
             )
-            artifacts.record_sample(sample["id"], result, diagnostic, setup_seconds=setup_seconds)
-        return artifacts.complete()
+            prediction_seconds += diagnostic["elapsed_seconds"]
+            artifacts.record_sample(
+                sample["id"], result, diagnostic, setup_seconds=models.load_seconds
+            )
+        summary = artifacts.complete()
+        if config.include_timing:
+            summary.update(
+                model_load_seconds=models.load_seconds, prediction_seconds=prediction_seconds
+            )
+        return summary
     except BaseException as exc:
         try:
             artifacts.fail(exc)
         except Exception as artifact_error:
             raise exc from artifact_error
         raise
+    finally:
+        if owns_models and models is not None:
+            models.close()
 
 
 def package_check(config: InferenceConfig) -> dict:
@@ -221,9 +296,10 @@ def package_check(config: InferenceConfig) -> dict:
             config.asr_path,
             config.adapter_path,
             config.tokenizer_path,
+            config.llama_server_path,
         ],
     )
-    for field in ("model_path", "tokenizer_path", "adapter_path", "asr_path"):
+    for field in ("model_path", "tokenizer_path", "adapter_path", "asr_path", "llama_server_path"):
         value = getattr(config, field)
         if value is not None and not value.exists():
             raise FileNotFoundError(f"Missing local {field}: {value}")
@@ -254,6 +330,7 @@ def dispatch(command: str, values: dict) -> dict:
                     "data_root",
                     "model_path",
                     "asr_path",
+                    "llama_server_path",
                     "adapter_path",
                     "tokenizer_path",
                     "base_model",
@@ -334,7 +411,11 @@ def dispatch(command: str, values: dict) -> dict:
             values["out"], inputs=[values["data_root"], root, values["predictions"]]
         )
         rows = load_manifest(root, values.get("split", "train"))
-        validate_submission(read_jsonl(values["predictions"]), [r["id"] for r in rows])
+        validate_submission(
+            read_jsonl(values["predictions"]),
+            [r["id"] for r in rows],
+            include_timing=values.get("include_timing", False),
+        )
         result = {
             "status": "PASS",
             "samples": len(rows),

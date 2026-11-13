@@ -143,10 +143,25 @@ class LoopTests(unittest.TestCase):
                 self.assertEqual(d["goals"][0]["occurrences"][0]["status"], "CANCELED")
 
     def test_unsupported_withdrawn_plan_real_empty_hash(self):
-        p, d, e = self.run_loop([{"kind": "DONE"}], [])
+        p, d, e = self.run_loop([decision("contacts.search", name="Lan")], [])
         self.assertEqual(p["tool_calls"], [])
         self.assertEqual(p["state_hash"], e.get_state_hash())
         self.assertEqual(d["stop_reason"], "DONE")
+
+    def test_blank_latest_transcript_keeps_actual_empty_trace(self):
+        env = FakeEnv()
+        prediction, diagnostic = infer(
+            SAMPLE,
+            ".",
+            "train",
+            CATALOG,
+            Policy([], []),
+            env_factory=lambda *_: env,
+            prepare=lambda sample, _: {**sample, "text": " "},
+        )
+        self.assertEqual(prediction["tool_calls"], env.calls)
+        self.assertEqual(prediction["state_hash"], env.get_state_hash())
+        self.assertEqual(diagnostic["stop_reason"], "EMPTY_TRANSCRIPT")
 
     def test_K33_ambiguous_read_then_terminal_ask(self):
         p, d, e = self.run_loop(
