@@ -43,17 +43,19 @@ def build_parser():
     sub.choices["freeze"].add_argument("--seed", type=int)
     sub.choices["freeze"].add_argument("--heldout-app")
     p = sub.choices["predict"]
-    p.add_argument("--backend", choices=("ollama", "transformers"))
+    p.add_argument("--backend", choices=("ollama", "transformers", "llama_cpp"))
     p.add_argument("--model-path", type=Path)
     p.add_argument("--tokenizer-path", type=Path)
     p.add_argument("--adapter-path", type=Path)
     p.add_argument("--asr-path", type=Path)
+    p.add_argument("--llama-server-path", type=Path)
     p.add_argument("--ollama-model")
     p.add_argument("--ollama-url")
     p.add_argument("--input-mode", choices=("oracle", "audio"))
     p.add_argument("--selection", choices=("validation", "fit", "all"))
     for name in ("predict", "validate"):
         sub.choices[name].add_argument("--split", choices=("train", "public_test", "private_test"))
+        sub.choices[name].add_argument("--include-timing", action="store_true")
     for name in ("predict", "evaluate"):
         sub.choices[name].add_argument("--limit", type=int)
     for flag in (

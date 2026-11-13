@@ -39,7 +39,7 @@ class LocalPolicy:
             local_files_only=True,
             trust_remote_code=False,
             device_map="auto",
-            torch_dtype="auto",
+            dtype="auto",
         ).eval()
         if adapter_path is not None:
             from peft import PeftModel  # type: ignore[import-not-found,import-untyped]

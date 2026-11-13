@@ -1,14 +1,17 @@
 # LifeMate
 
-LifeMate is an offline Python CLI that turns Vietnamese voice requests into
-actions in the organizer's app simulator. It reads audio or a train transcript,
-asks a local policy for each next action, validates proposed tool calls, and
-publishes JSONL rows with the actual `id`, `tool_calls`, and `state_hash`.
+LifeMate is an offline Python CLI for the Zalo AI Challenge. The runtime follows
+one request from Vietnamese audio through transcription, tool selection, and
+validated execution in Zalo's simulator. It writes the resulting tool trace and
+state hash to JSONL.
+
+Read [the learning guide](../learn.md) for a walkthrough from WAV to submission
+and a roadmap for improving the model. Use the [competition run guide](docs/competition_run.md)
+to run the current local model and produce a submission file.
 
 | I want to | Guide |
 | --- | --- |
-| Learn the AI concepts | [AI for software engineers](docs/ai_for_software_engineers.md) covers tool calling, speech recognition, evaluation, and LoRA with examples from LifeMate |
-| Read the code in order | [Project roadmap](docs/milestones/README.md), [architecture](docs/architecture.md), and [compatibility map](docs/migration.md) |
+| Read the code in order | [Request walkthrough](../learn.md#2-follow-one-request-through-the-code) and [architecture](docs/architecture.md) |
 | Build and install the app | [Build the Python package](docs/build.md) for the wheel, source archive, and clean-install check |
 | Run and test the app locally | [Local quickstart](docs/local_quickstart.md) for the test suite, an SDK smoke test, and text/audio prediction |
 | Run a full workflow | [Operator guide](docs/operator_guide.md) for kit setup, inference, validation, and evaluation |
@@ -33,9 +36,8 @@ $env:PYTHONDONTWRITEBYTECODE = '1'
 ```
 
 Run [one real simulator read](docs/local_quickstart.md#1-run-one-sdk-read) with
-the supplied organizer kit to test the application end to end without model
-weights. Then try [one local model prediction](docs/local_quickstart.md#2-run-one-model-prediction)
-with Ollama or with local Transformers and Whisper checkpoints.
+the organizer kit to verify SDK access. Then run the [public audio pilot](docs/competition_run.md#public-test-on-windows)
+with the competition's local Qwen and PhoWhisper configuration.
 
 ## Source map
 

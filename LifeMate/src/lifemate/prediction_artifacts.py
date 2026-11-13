@@ -14,7 +14,7 @@ from .submission import write_submission
 class PredictionArtifacts:
     """Own the files and publication order for one prediction run."""
 
-    def __init__(self, out: Path, *, inputs: Iterable[Path | None]) -> None:
+    def __init__(self, out: Path, *, inputs: Iterable[Path | None], include_timing=False) -> None:
         inputs = tuple(inputs)
         self.output = external_output(out, inputs=inputs)
         self._run_path = self.output.with_suffix(".run.json")
@@ -25,6 +25,7 @@ class PredictionArtifacts:
             external_output(path, inputs=inputs, outputs=checked)
             checked.append(path)
         self._metadata: RunMetadata
+        self._include_timing = include_timing
         self._predictions: list[Payload] = []
         self._diagnostics: list[Payload] = []
         self._diagnostics_written = False
@@ -41,6 +42,11 @@ class PredictionArtifacts:
     def record_sample(
         self, sample_id: str, prediction: Payload, diagnostic: Payload, *, setup_seconds: float
     ) -> None:
+        if self._include_timing:
+            elapsed = diagnostic["elapsed_seconds"]
+            if not isinstance(elapsed, (int, float)):
+                raise ValueError("Expected numeric sample duration")
+            prediction = {**prediction, "time": int(elapsed * 1000)}
         self._predictions.append(prediction)
         write_jsonl(
             self._partial_path, self._predictions, replace=bool(self._metadata.completed_ids)
@@ -53,7 +59,12 @@ class PredictionArtifacts:
         self._save_metadata()
 
     def complete(self) -> dict:
-        write_submission(self._predictions, self._metadata.selected_ids, self.output)
+        write_submission(
+            self._predictions,
+            self._metadata.selected_ids,
+            self.output,
+            include_timing=self._include_timing,
+        )
         self._metadata.status = "COMPLETE"
         self._save_metadata()
         return {

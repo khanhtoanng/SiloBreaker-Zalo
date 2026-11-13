@@ -7,6 +7,10 @@ from typing import Protocol
 from ..contracts import GoalPlan, JsonValue
 
 
+class ContextOverflow(RuntimeError):
+    """The complete prompt cannot fit the configured model context."""
+
+
 class Clock(Protocol):
     def monotonic(self) -> float: ...
 

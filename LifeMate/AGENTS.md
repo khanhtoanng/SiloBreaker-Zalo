@@ -42,21 +42,19 @@ authorized local evidence.
 
 ## LifeMate SDLC
 
-For a feature, bug fix, or new or resumed ticket, read the
-[shared SDLC policy](.ai-sdlc/POLICY.md). Recover existing ticket evidence
-first, check readiness, and recommend sdlc-quick, sdlc-standard, or
-sdlc-extended based on scope and risk. Honor an explicit profile and explain
-any needed escalation before affected edits. Ask only about consequential
-unsettled decisions. Answer ordinary code questions directly.
+Use `sdlc-work` from the [AI SDLC plugin](plugins/ai-sdlc/plugin.json) for
+features, bug fixes, and new or resumed tickets. Use the requested mode, or
+`auto` when none is specified. Recover existing ticket evidence, approved
+scope, grants, and outstanding gates from [prior work records](docs/ai/work/)
+when applicable. Ask only about consequential unsettled decisions. Answer
+ordinary code questions directly.
 
-Use the three skills under .agents/skills/ for the current workflow. Resolve
-legacy FULL, SMALL, and RESUME requests against the recorded scope, grants,
-and outstanding gates. Route by current evidence and risk. Native Codex
-workers live under .codex/agents/. Use them only when actual named dispatch
-is supported, useful, and authorized. The coordinator owns questions,
-grants, decision records, and human gates.
+Use `sdlc-setup inspect` for workspace discovery and `sdlc-doctor` to
+diagnose plugin discovery or reviewer availability.
 
-For explicit `sdlc eval <work-id>`, inspect actual evidence and propose the
-narrowest correction with cause, scope, risks, validation, and exact diff.
-Give reusable rule proposals a stable RULE-ID, scope, trigger, evidence,
-reason, and validation. Rule changes require exact-diff approval.
+On a fresh Codex installation, run these commands from the LifeMate directory.
+
+```powershell
+codex plugin marketplace add .
+codex plugin add ai-sdlc@ai-sdlc-local
+```

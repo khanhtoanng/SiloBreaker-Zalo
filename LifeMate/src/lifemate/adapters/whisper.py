@@ -54,8 +54,8 @@ def prepare_audio(sample, audio_root, asr, *, deadline, clock=time):
         text = asr.transcribe(path, deadline=deadline)
         if clock.monotonic() >= deadline:
             raise TimeoutError("Late ASR response")
-        if not isinstance(text, str) or not text.strip():
-            raise ValueError("ASR returned empty transcript")
+        if not isinstance(text, str):
+            raise ValueError("ASR returned a non-text transcript")
         timings.append(
             {
                 "audio": str(relative),
@@ -99,7 +99,11 @@ class WhisperAsr:
             path, local_files_only=True, trust_remote_code=False
         )
         self.model = AutoModelForSpeechSeq2Seq.from_pretrained(
-            path, local_files_only=True, trust_remote_code=False, device_map="auto"
+            path,
+            local_files_only=True,
+            trust_remote_code=False,
+            device_map="auto",
+            dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
         ).eval()
 
     def transcribe(self, path: Path | str, *, deadline: float) -> str:
@@ -107,6 +111,11 @@ class WhisperAsr:
 
         import soundfile as sf  # type: ignore[import-not-found,import-untyped]
         from scipy.signal import resample_poly  # type: ignore[import-not-found,import-untyped]
+        from transformers import StoppingCriteria, StoppingCriteriaList  # type: ignore[import-not-found,import-untyped]
+
+        class Deadline(StoppingCriteria):
+            def __call__(self, input_ids, scores, **kwargs):
+                return time.monotonic() >= deadline
 
         info = inspect_wav(path)
         if info["duration_seconds"] > 30.0:
@@ -119,12 +128,18 @@ class WhisperAsr:
             audio = resample_poly(audio, target // divisor, rate // divisor)
         if time.monotonic() >= deadline:
             raise TimeoutError("ASR deadline before generation")
-        inputs = self.processor(audio, sampling_rate=target, return_tensors="pt").to(
-            self.model.device
-        )
+        inputs = self.processor(
+            audio, sampling_rate=target, return_attention_mask=True, return_tensors="pt"
+        ).to(device=self.model.device, dtype=self.model.dtype)
         with self.torch.inference_mode():
             output = self.model.generate(
-                **inputs, language="vi", task="transcribe", do_sample=False, max_new_tokens=448
+                **inputs,
+                language="vi",
+                task="transcribe",
+                do_sample=False,
+                num_beams=1,
+                max_length=self.model.config.max_target_positions,
+                stopping_criteria=StoppingCriteriaList([Deadline()]),
             )
         if time.monotonic() >= deadline:
             raise TimeoutError("ASR response exceeded deadline")

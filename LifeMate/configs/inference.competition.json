@@ -1,0 +1,15 @@
+{
+  "data_root": "/data",
+  "out": "/result/submission.jsonl",
+  "split": "private_test",
+  "input_mode": "audio",
+  "selection": "all",
+  "backend": "llama_cpp",
+  "llama_server_path": "../bin/llama-server",
+  "model_path": "../saved_models/policy.gguf",
+  "asr_path": "../saved_models/asr",
+  "sample_seconds": 25.0,
+  "max_context_tokens": 16384,
+  "max_new_tokens": 384,
+  "include_timing": true
+}

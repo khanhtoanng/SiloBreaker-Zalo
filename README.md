@@ -1,40 +1,36 @@
 # LifeMate 2026
 
-LifeMate is an offline Python CLI for Vietnamese voice-to-action requests. It
-interprets a request with a local model, executes allowed actions through the
-organizer's simulator, and writes the actual tool trace and state hash.
+LifeMate turns a spoken Vietnamese request into actions in the Zalo AI Challenge simulator. Given a WAV file, conversation history, user context, and the tools installed for that sample, it can look up an entity, execute one or more actions, or ask for missing information. An unsupported request produces an empty call list. Zalo evaluates the tool calls and the resulting simulator state. [LifeMate challenge](https://challenge.zalo.ai/portal/lifemate)
 
-The application lives in [LifeMate/](LifeMate/README.md). Open that folder in
-PowerShell before running the application commands.
+## How it works
 
-| I want to | Start here |
+```mermaid
+flowchart LR
+    A[WAV and conversation history] --> B[PhoWhisper transcript]
+    B --> C[Qwen plans and proposes a tool call]
+    D[User context and installed tool schemas] --> C
+    C --> E[LifeMate validates the proposal]
+    E --> F[Organizer simulator executes the call]
+    F -->|Tool result| C
+    F --> G[Submission records actual calls and state hash]
+```
+
+For example, “Nhắn Minh là tôi đến muộn” can require a contact search followed by an SMS. PhoWhisper transcribes the request, Qwen chooses a tool, and LifeMate checks that the contact ID came from evidence such as the search result. The simulator executes the validated SMS and provides the final state hash. If several contacts match and the context cannot resolve which one is Minh, the agent can ask for clarification.
+
+## Start here
+
+| Goal | What to open |
 | --- | --- |
-| Learn how LifeMate works | [AI concepts through the code](LifeMate/docs/ai_for_software_engineers.md), then the [project roadmap](LifeMate/docs/milestones/README.md) and [architecture](LifeMate/docs/architecture.md) |
-| Build and install the Python app | [Build and verify the package](LifeMate/docs/build.md) |
-| Run the app and test it | [Local quickstart](LifeMate/docs/local_quickstart.md) for setup, the test suite, one real simulator call, and a local model pilot |
-| Run full predictions or fine-tune | [Operator guide](LifeMate/docs/operator_guide.md) and [LoRA training guide](LifeMate/docs/local_training.md) |
-| Prepare a competition delivery | [Offline container build](LifeMate/docs/offline_packaging.md) and [Zalo submission milestone](LifeMate/docs/milestones/06-zalo-submission.md) |
+| Understand the whole application and the AI concepts behind it | [learn.md](learn.md) traces one request through the code, explains evaluation, and shows when LoRA is worth trying |
+| Run tests and one real simulator call | [Application README](LifeMate/README.md) and [local quickstart](LifeMate/docs/local_quickstart.md) |
+| Run an audio pilot and generate `submission.jsonl` | [Competition run guide](LifeMate/docs/competition_run.md) |
+| Fine-tune and compare an adapter | [LoRA walkthrough](learn.md#5-fine-tune-the-action-policy-with-lora) and [training commands](LifeMate/docs/local_training.md) |
+| Prepare the private-test handoff | [Submission checklist](LifeMate/docs/milestones/06-zalo-submission.md) |
 
-## Workspace layout
+## What is implemented
 
-| Path | Contents |
-| --- | --- |
-| `LifeMate/` | Python source, scripts, configs, tests, and application docs |
-| `train+public_test/train+public_test/` | Extracted organizer kit v3.2.0 with train and public-test assets. Pass this directory as `--data-root` |
-| `train+public_test.zip` | Original organizer archive for re-extraction |
-| `local_lifemate_artifacts/` | Earlier local replay, training data preparation, Ollama evidence, and the tokenizer used in the quickstart |
-| `tools/` and `prepare_kit_review.py` | Kit inventory, SDK checks, and preparation of a limited review archive |
+- **Inference.** The competition configuration uses local PhoWhisper-small and Qwen3-4B-Instruct-2507 Q4_K_M. Every sample uses its own organizer simulator session. The public writer produces `id`, `tool_calls`, and `state_hash`. The private-test configuration and timing notebook also write the elapsed milliseconds as `time`. [Model and reproducibility details](LifeMate/training_code/README.md)
+- **Evaluation.** The labeled train split supports simulator replay, a frozen holdout, and a local proxy score. A real-audio pilot verified CLI and notebook parity on four public samples. Train replay verified the simulator contract across 1,545 labeled scenarios. The four-sample pilot measured integration and timing. Leaderboard accuracy and organizer-hardware timing still need measurement. [Scoring details](LifeMate/docs/scorer_parity.md)
+- **Training.** The repository can build training examples from labeled train traces and train a LoRA adapter for the action policy. The current competition configuration uses the published checkpoints. Training-data generation and trainer preflight were verified locally. [Training workflow](LifeMate/docs/local_training.md)
 
-Keep the organizer kit, model weights, and run outputs outside the application
-source tree. Follow the organizer's data-sharing terms when distributing a build.
-
-## Original handoff references
-
-- Product goals and acceptance criteria. [Intent](intent.md)
-- Design proposals, score-sensitive cases, and the original delivery plan. [Technical specification](spec.md), [scoring edge cases](SCORING_EDGE_CASES.md), [implementation plan](implementation_plan.md)
-- Findings from the initial train SDK review and how that review archive was made. [Verified kit findings](KIT_VERIFIED_FINDINGS.md), [kit access notes](KIT_ACCESS_NOTES.md)
-- Research alternatives and source inputs. [Research notes](01_research_brainstorm.md), [research handoff](inputs/LifeMate_AI_Research_Handoff.md), [data notes](inputs/data.md)
-
-See the [verification history](LifeMate/docs/verification.md) for recorded checks
-and the [scorer parity notes](LifeMate/docs/scorer_parity.md) for the limits of
-local proxy scoring.
+Run application commands from `LifeMate/`. The organizer kit, downloaded weights, and prediction outputs are local inputs or artifacts. GitHub contains the source, configuration, tests, and documentation.

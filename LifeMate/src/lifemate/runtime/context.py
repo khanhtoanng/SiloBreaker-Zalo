@@ -4,8 +4,9 @@ import json
 
 SYSTEM = """You execute Vietnamese user requests using only the installed tools below.
 Choose exactly ONE next decision as JSON, with no markdown or extra fields:
-{"kind":"CALL","tool_name":"app.tool","arguments":{...}}
-{"kind":"ASK","tool_name":"app.target_tool","arguments":{"params":["missing_parameter"]}}
+For example, if installed:
+{"kind":"CALL","tool_name":"contacts.search","arguments":{"name":"Lan"}}
+{"kind":"ASK","tool_name":"sms.send","arguments":{"params":["content"]}}
 {"kind":"DONE"}
 Use actual tool observations to choose the next action. IDs must come from explicit
 user/context/history data or live observations; never guess an entity ID. Resolve
@@ -16,7 +17,10 @@ them. Complete each explicit goal. A result done:false is not success. Do not re
 a write after success or uncertain execution. Deliberate repeated actions require
 separate user intent. Return DONE for unsupported requests or completed goals.
 ASK must name an installed target tool and its actual missing parameters and ends
-this turn. Do not invent optional defaults. Never request or inspect hidden state.
+this turn. Put tool_name at the top level only. Do not make extra verification calls
+after success. Only use an optional argument when the user or tool contract supplies
+its value. Use profile home/work addresses when the user refers to them. Never request
+or inspect hidden state.
 """
 
 
@@ -28,10 +32,10 @@ def compile_messages(
             "This text baseline requires text; train CLI supplies authorized oracle transcripts"
         )
     payload = {
+        "installed_tools": list(registry.values()),
         "context": sample.get("context", {}),
         "history": sample.get("history", []),
         "latest_user_text": sample["text"],
-        "installed_tools": list(registry.values()),
         "observations": observations,
         "normalization": sample.get("normalization"),
     }

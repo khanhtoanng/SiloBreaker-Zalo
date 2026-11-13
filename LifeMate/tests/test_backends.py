@@ -5,12 +5,22 @@ from pathlib import Path
 
 from test_ollama import FixtureClient
 
+from lifemate.adapters.llama_cpp import LlamaCppPolicy
 from lifemate.adapters.transformers import LocalPolicy
 from lifemate.adapters.whisper import WhisperAsr
 from lifemate.ollama_policy import OllamaPolicy
+from lifemate.runtime.validation import Rejected
 
 
 class BackendTests(unittest.TestCase):
+    def test_truncated_binding_is_a_rejected_proposal(self):
+        from unittest.mock import Mock
+
+        policy = LlamaCppPolicy.__new__(LlamaCppPolicy)
+        policy.next_action = Mock(return_value='{"occurrence_id":')
+        with self.assertRaises(Rejected):
+            policy.bind({}, deadline=1)
+
     def test_missing_local_assets_no_download_or_fallback(self):
         for adapter in (LocalPolicy, WhisperAsr):
             with self.assertRaises(FileNotFoundError):
@@ -51,8 +61,8 @@ class BackendTests(unittest.TestCase):
         seen = {}
 
         class Inputs(dict):
-            def to(self, device):
-                seen["device"] = device
+            def to(self, **kw):
+                seen["input_placement"] = kw
                 return self
 
         class Processor:
@@ -72,6 +82,8 @@ class BackendTests(unittest.TestCase):
 
         class Model:
             device = "cpu"
+            dtype = "float32"
+            config = SimpleNamespace(max_target_positions=448)
 
             @staticmethod
             def from_pretrained(path, **kw):
@@ -95,9 +107,16 @@ class BackendTests(unittest.TestCase):
             return audio
 
         modules = {
-            "torch": SimpleNamespace(inference_mode=lambda: nullcontext()),
+            "torch": SimpleNamespace(
+                inference_mode=nullcontext,
+                cuda=SimpleNamespace(is_available=lambda: False),
+                float32="float32",
+            ),
             "transformers": SimpleNamespace(
-                AutoProcessor=Processor, AutoModelForSpeechSeq2Seq=Model
+                AutoProcessor=Processor,
+                AutoModelForSpeechSeq2Seq=Model,
+                StoppingCriteria=object,
+                StoppingCriteriaList=list,
             ),
             "soundfile": SimpleNamespace(read=lambda *a, **kw: (Signal(), 8000)),
             "scipy": SimpleNamespace(),
@@ -113,6 +132,10 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(seen["resample"], (2, 1))
         self.assertEqual(seen["mono_axis"], 1)
         self.assertEqual(seen["processor_call"]["sampling_rate"], 16000)
+        self.assertTrue(seen["processor_call"]["return_attention_mask"])
+        self.assertEqual(seen["input_placement"], {"device": "cpu", "dtype": "float32"})
+        self.assertEqual(seen["generate"]["max_length"], 448)
+        self.assertNotIn("max_new_tokens", seen["generate"])
         for key in ("processor_load", "model_load"):
             self.assertTrue(seen[key]["local_files_only"])
             self.assertFalse(seen[key]["trust_remote_code"])

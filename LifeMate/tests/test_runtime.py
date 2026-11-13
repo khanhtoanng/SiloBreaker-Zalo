@@ -247,8 +247,30 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(prediction["tool_calls"][1]["arguments"]["contact_id"], "c_observed")
 
     def test_six_calls_plus_done(self):
+        class ReadPolicy(ScriptedPolicy):
+            def plan(self, request_context, *, deadline):
+                return {
+                    "goals": [
+                        {
+                            "id": f"read-{i}",
+                            "intent": f"search for contact {i}",
+                            "tool_name": "contacts.search",
+                            "arguments": {"name": str(i)},
+                            "occurrences": [{"id": f"occurrence-{i}", "span": [i * 2, i * 2 + 1]}],
+                        }
+                        for i in range(6)
+                    ]
+                }
+
         actions = [decision("contacts.search", name=str(i)) for i in range(6)] + [{"kind": "DONE"}]
-        prediction, diagnostic, _, _ = self.run_agent(actions)
+        prediction, diagnostic = infer(
+            {**SAMPLE, "text": "0 1 2 3 4 5"},
+            ".",
+            "train",
+            CATALOG,
+            ReadPolicy(actions),
+            env_factory=lambda *_: FakeEnv(),
+        )
         self.assertEqual(len(prediction["tool_calls"]), 6)
         self.assertEqual(diagnostic["stop_reason"], "DONE")
 
