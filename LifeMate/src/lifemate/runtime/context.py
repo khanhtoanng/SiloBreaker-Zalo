@@ -2,25 +2,29 @@
 
 import json
 
-SYSTEM = """You execute Vietnamese user requests using only the installed tools below.
-Choose exactly ONE next decision as JSON, with no markdown or extra fields:
-For example, if installed:
-{"kind":"CALL","tool_name":"contacts.search","arguments":{"name":"Lan"}}
+SYSTEM = """Bạn xử lý yêu cầu tiếng Việt trong latest_user_text. Trả về đúng một JSON:
+{"kind":"CALL","tool_name":"contacts.search","arguments":{"query":"Bảo"}}
 {"kind":"ASK","tool_name":"sms.send","arguments":{"params":["content"]}}
 {"kind":"DONE"}
-Use actual tool observations to choose the next action. IDs must come from explicit
-user/context/history data or live observations; never guess an entity ID. Resolve
-ambiguous entities with available reads, then ASK if still unresolved. Use the sample
-current_time and timezone for dates and money units accurately. Preserve requested
-text, corrections and negation. History operations are already applied; do not replay
-them. Complete each explicit goal. A result done:false is not success. Do not retry
-a write after success or uncertain execution. Deliberate repeated actions require
-separate user intent. Return DONE for unsupported requests or completed goals.
-ASK must name an installed target tool and its actual missing parameters and ends
-this turn. Put tool_name at the top level only. Do not make extra verification calls
-after success. Only use an optional argument when the user or tool contract supplies
-its value. Use profile home/work addresses when the user refers to them. Never request
-or inspect hidden state.
+
+Chọn bước tiếp theo theo thứ tự:
+1. Xác định mục tiêu còn lại. Tôn trọng câu sửa lại, phủ định và hủy ở cuối yêu cầu.
+   Dùng lịch sử để hiểu tham chiếu. Các thao tác trong lịch sử đã chạy.
+2. Nếu có thể tiến hành một mục tiêu độc lập, hãy tiếp tục mục tiêu đó. Nếu cần dữ liệu,
+   CALL công cụ đọc: tra danh bạ theo tên/quan hệ, lịch theo sự kiện, thiết bị theo phòng,
+   hóa đơn theo dịch vụ, tài khoản và người thụ hưởng trước khi chuyển khoản. Khi chưa rõ
+   bộ lọc, có thể gọi công cụ liệt kê với {} nếu schema cho phép. Dùng kết quả đọc và
+   ngữ cảnh để điền tham số. Không đoán ID.
+3. CALL công cụ thực hiện khi đã đủ dữ liệu. Dùng current_time, timezone và địa chỉ
+   nhà/cơ quan trong hồ sơ. Giữ nguyên nội dung được yêu cầu. Bỏ tham số tùy chọn khi
+   người dùng không nêu giá trị, kể cả label, repeat và bộ lọc. Kết quả done:false là
+   chưa thành công. Không gọi lại thao tác đã thành công hoặc chưa rõ đã thực hiện chưa.
+4. ASK kết thúc lượt ngay. Chỉ hỏi về tham số thật sự thiếu sau khi đã tận dụng ngữ
+   cảnh, lịch sử và công cụ đọc, đồng thời đã xử lý các mục tiêu độc lập có thể thực
+   hiện. Chẳng hạn “nhắn Bảo” chưa có nội dung; còn “nhắn Bảo là tôi đến trễ” thì cần
+   tra Bảo và gửi nếu tìm thấy đúng người. Hỏi đúng tên tham số của công cụ đích.
+5. DONE khi đã thực hiện xong, người dùng đã hủy, hoặc không có công cụ phù hợp.
+Không gọi thêm để kiểm tra thao tác đã thành công. Không truy cập trạng thái ẩn.
 """
 
 
@@ -35,7 +39,6 @@ def compile_messages(
         "installed_tools": list(registry.values()),
         "context": sample.get("context", {}),
         "history": sample.get("history", []),
-        "latest_user_text": sample["text"],
         "observations": observations,
         "normalization": sample.get("normalization"),
     }
@@ -43,6 +46,7 @@ def compile_messages(
         payload["goal_ledger"] = ledger
     if rejection:
         payload["previous_decision_rejected_before_execution"] = rejection
+    payload["latest_user_text"] = sample["text"]
     encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False)
     if (
         max_characters is not None

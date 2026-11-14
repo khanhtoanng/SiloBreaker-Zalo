@@ -22,16 +22,50 @@ from .protocols import ContextOverflow
 
 DECISION_SCHEMA = DECISION.model_json_schema()
 GOAL_SCHEMA = GoalPlan.model_json_schema()
+_occurrence_fields = GOAL_SCHEMA["$defs"]["GoalOccurrence"]["properties"]
+for _runtime_field in ("status", "observation_ids", "attempts"):
+    del _occurrence_fields[_runtime_field]
+
+
+def _grammar_parameters(schema):
+    # llama.cpp's built-in date/time grammar can exclude values accepted by the SDK.
+    result = {key: value for key, value in schema.items() if key != "format"}
+    if "properties" in result:
+        result["properties"] = {
+            name: _grammar_parameters(spec) for name, spec in result["properties"].items()
+        }
+    if isinstance(result.get("items"), dict):
+        result["items"] = _grammar_parameters(result["items"])
+    return result
 
 
 def _action_schema(payload):
-    """Constrain ASK to real parameter names of the planned target tool."""
-    goals = {goal["tool_name"] for goal in payload.get("goal_ledger", [])}
-    definitions = DECISION_SCHEMA["$defs"]
-    options = [{"$ref": "#/$defs/CallDecision"}, {"$ref": "#/$defs/DoneDecision"}]
+    """Constrain calls to installed schemas and ASK to planned action fields."""
+    ledger = payload.get("goal_ledger", [])
+    goals = {
+        goal["tool_name"]
+        for goal in ledger
+        if any(occurrence["status"] == "PENDING" for occurrence in goal["occurrences"])
+    }
+    options = [DECISION_SCHEMA["$defs"]["DoneDecision"]]
     for tool in payload.get("installed_tools", []):
         name = tool["name"]
-        properties = tool["parameters"].get("properties", {})
+        if name == "sys.ask_missing_info":
+            continue
+        parameters = tool["parameters"]
+        options.append(
+            {
+                "type": "object",
+                "properties": {
+                    "kind": {"const": "CALL"},
+                    "tool_name": {"const": name},
+                    "arguments": {**_grammar_parameters(parameters), "additionalProperties": False},
+                },
+                "required": ["kind", "tool_name", "arguments"],
+                "additionalProperties": False,
+            }
+        )
+        properties = parameters.get("properties", {})
         if name not in goals or not properties:
             continue
         options.append(
@@ -58,7 +92,7 @@ def _action_schema(payload):
                 "additionalProperties": False,
             }
         )
-    return {"$defs": definitions, "oneOf": options}
+    return {"oneOf": options}
 
 
 class LlamaCppPolicy:
@@ -102,6 +136,8 @@ class LlamaCppPolicy:
                     str(max_context_tokens),
                     "--parallel",
                     "1",
+                    "--chat-template-kwargs",
+                    '{"enable_thinking":false}',
                     "--n-gpu-layers",
                     "999",
                     "--flash-attn",
@@ -179,6 +215,9 @@ class LlamaCppPolicy:
             }
         else:
             schema = _action_schema(json.loads(messages[1]["content"]))
+        return self._complete(messages, schema, deadline)
+
+    def _complete(self, messages, schema, deadline):
         payload = {"messages": messages}
         count = self._request("/v1/chat/completions/input_tokens", payload, deadline)[
             "input_tokens"

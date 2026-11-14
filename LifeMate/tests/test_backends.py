@@ -5,7 +5,7 @@ from pathlib import Path
 
 from test_ollama import FixtureClient
 
-from lifemate.adapters.llama_cpp import LlamaCppPolicy
+from lifemate.adapters.llama_cpp import GOAL_SCHEMA, LlamaCppPolicy, _action_schema
 from lifemate.adapters.transformers import LocalPolicy
 from lifemate.adapters.whisper import WhisperAsr
 from lifemate.ollama_policy import OllamaPolicy
@@ -13,6 +13,37 @@ from lifemate.runtime.validation import Rejected
 
 
 class BackendTests(unittest.TestCase):
+    def test_call_grammar_uses_installed_argument_schemas(self):
+        parameters = {
+            "type": "object",
+            "properties": {
+                "event_id": {"type": "string", "x-ref": "calendar.events"},
+                "start": {"type": "string", "format": "date-time"},
+            },
+            "required": ["event_id"],
+        }
+        tool = {"name": "calendar.delete_event", "parameters": parameters}
+        schema = _action_schema({"installed_tools": [tool]})
+        calls = [
+            option
+            for option in schema["oneOf"]
+            if option.get("properties", {}).get("kind", {}).get("const") == "CALL"
+        ]
+        self.assertEqual(len(calls), 1)
+        properties = calls[0]["properties"]
+        self.assertEqual(properties["tool_name"]["const"], "calendar.delete_event")
+        self.assertEqual(properties["arguments"]["required"], ["event_id"])
+        self.assertFalse(properties["arguments"]["additionalProperties"])
+        self.assertNotIn("format", properties["arguments"]["properties"]["start"])
+        self.assertEqual(parameters["properties"]["start"]["format"], "date-time")
+        self.assertNotIn("additionalProperties", parameters)
+
+    def test_planner_schema_only_exposes_occurrence_fields_the_model_supplies(self):
+        occurrence = GOAL_SCHEMA["$defs"]["GoalOccurrence"]
+        self.assertEqual(set(occurrence["properties"]), {"id", "span"})
+        self.assertEqual(set(occurrence["required"]), {"id", "span"})
+        self.assertFalse(occurrence["additionalProperties"])
+
     def test_truncated_binding_is_a_rejected_proposal(self):
         from unittest.mock import Mock
 

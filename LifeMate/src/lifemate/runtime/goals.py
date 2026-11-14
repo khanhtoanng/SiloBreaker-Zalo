@@ -7,19 +7,23 @@ import json
 from ..contracts import Goal, GoalOccurrence, GoalPlan, json_loads
 from .validation import Rejected
 
-PLANNER_SYSTEM = """Plan what the latest Vietnamese request explicitly wants. Return one JSON object.
-For example, for latest_user_text 'Nhắn Lan đi', if sms.send is installed:
+PLANNER_SYSTEM = """Xác định các thao tác cuối cùng được yêu cầu trong latest_user_text.
+Trả về một JSON ngắn gọn. Ví dụ 'Nhắn Lan đi' khi có sms.send:
 {"goals":[{"id":"g1","intent":"Nhắn Lan","tool_name":"sms.send","arguments":{},"dependencies":[],"condition":null,"occurrences":[{"id":"o1","span":[0,8]}]}]}
-Use unique string goal and occurrence IDs, an arguments object (use {} when uncertain),
-and dependency IDs only for true prerequisites among explicit goals. Include the final
-tool even when some of its required arguments are missing. Put only known constraints
-that exactly match tool argument values into arguments. Use zero-based Python character
-offsets into latest_user_text, with an exclusive end. Repeated equal actions need distinct
-nonoverlapping spans. Include a read goal only when the user asks for its result.
-History resolves references. Return {"goals":[]} for unsupported or withdrawn requests.
-For a conditional goal, condition is {tool_name,field,operator,value}, using an eligible
-read tool, actual result field path, and operator eq/ne/gt/ge/lt/le/contains.
-Use installed tool names. Never claim effects or invent a lookup result."""
+Chỉ dùng tên công cụ đã cài. Liệt kê các mục tiêu độc lập mà người dùng muốn làm ngay.
+Mục tiêu báo thức/nhắc việc để làm việc khác sau này không yêu cầu làm việc đó ngay.
+Giữ mục tiêu kể cả khi cần tra cứu thêm. Chỉ thêm công cụ đọc vào goals khi người dùng
+yêu cầu xem kết quả của nó. Tra cứu để lấy ID, thời gian hoặc số tiền là bước ngầm định.
+Dùng ID ngắn và duy nhất. dependencies chỉ chứa ID mục tiêu khác có trong goals khi
+thật sự phải chờ mục tiêu đó xong. Bỏ arguments nếu giá trị chưa có dạng chính xác
+theo schema. Không đoán ID, thời gian, số tiền, hoặc giá trị mặc định.
+span là chỉ số ký tự Python trong latest_user_text, tính từ 0, không gồm vị trí cuối.
+Nếu cùng thao tác được yêu cầu nhiều lần, mỗi occurrence có một span riêng.
+Dùng lịch sử để hiểu tham chiếu. Tôn trọng câu sửa lại và phủ định, kể cả 'à thôi khỏi'.
+Nếu đã hủy hoặc công cụ không hỗ trợ, trả {"goals":[]}.
+Với mục tiêu có điều kiện, condition là {tool_name,field,operator,value}, gồm công cụ
+đọc, đường dẫn trường kết quả và toán tử eq/ne/gt/ge/lt/le/contains. Chỉ khai báo
+điều kiện khi thực sự cần kiểm tra; không đoán kết quả hoặc tự đánh dấu hoàn thành."""
 
 
 class PolicyPlanner:
